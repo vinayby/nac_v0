@@ -1,0 +1,85 @@
+
+Gurobi 7.5.1 (linux64, Python) logging started Fri Sep 29 19:38:00 2017
+
+Academic license - for non-commercial use only
+Changed value of parameter TimeLimit to 100.0
+   Prev: 1e+100  Min: 0.0  Max: 1e+100  Default: 1e+100
+Changed value of parameter MIPFocus to 2
+   Prev: 0  Min: 0  Max: 3  Default: 0
+Optimize a model with 40 rows, 205 columns and 408 nonzeros
+Model has 3120 quadratic objective terms
+Model has 13 quadratic constraints
+Variable types: 1 continuous, 204 integer (192 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  QMatrix range    [1e+00, 5e+03]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  QObjective range [1e-01, 5e+02]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+  QRHS range       [2e+00, 2e+00]
+Modified 192 Q diagonals
+Modified 32 Q diagonals
+Modified 32 Q diagonals
+Modified 32 Q diagonals
+Modified 32 Q diagonals
+Modified 32 Q diagonals
+Modified 32 Q diagonals
+Modified 32 Q diagonals
+Modified 32 Q diagonals
+Modified 32 Q diagonals
+Modified 32 Q diagonals
+Modified 32 Q diagonals
+Modified 32 Q diagonals
+Modified 32 Q diagonals
+Presolve time: 0.00s
+Presolved: 40 rows, 205 columns, 408 nonzeros
+Presolved model has 3312 quadratic objective terms
+Variable types: 1 continuous, 204 integer (192 binary)
+Presolve removed 12 rows and 13 columns
+Presolved: 28 rows, 192 columns, 384 nonzeros
+Presolved model has 3312 quadratic objective terms
+
+
+Root relaxation: objective -6.373530e+03, 207 iterations, 0.01 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 -6373.5300    0  152          -    4.00000      -     -    0s
+H    0     0                    4941.0000000    4.00000   100%     -    0s
+     0     2 -6373.5300    0  152 4941.00000    4.00000   100%     -    0s
+H   31    32                    3316.0500000    4.00000   100%   9.5    0s
+H   71    64                    1699.7000000    4.00000   100%   7.5    0s
+  3072  1828 1376.12022   28  195 1699.70000   27.90491  98.4%  11.2    5s
+ 11325  7533 1563.12840   31  156 1699.70000  670.92023  60.5%   7.4   10s
+ 20759 14112 1676.92525   55   54 1699.70000  967.56447  43.1%   6.4   15s
+ 30399 21281 1257.83971   33  125 1699.70000 1013.25997  40.4%   5.8   20s
+ 39581 27692 1416.78456   49  112 1699.70000 1046.96470  38.4%   5.6   25s
+ 48089 33354 1614.47198   54   60 1699.70000 1080.91036  36.4%   5.4   30s
+ 56846 38888 1629.57013   57   63 1699.70000 1116.04750  34.3%   5.3   35s
+ 66708 44973 1215.20106   21  183 1699.70000 1157.37360  31.9%   5.2   40s
+ 75173 50614 1206.38043   43  126 1699.70000 1181.86926  30.5%   5.1   45s
+ 83619 56521 1660.40234   52   41 1699.70000 1194.39541  29.7%   5.0   50s
+ 92002 62424 1688.35726   63   41 1699.70000 1203.56548  29.2%   5.0   55s
+ 99510 67583 1233.26801   45  123 1699.70000 1209.61436  28.8%   5.0   60s
+ 107421 73006 1419.25393   53   91 1699.70000 1216.31431  28.4%   5.0   65s
+ 116030 78878 1680.71200   70   50 1699.70000 1222.39638  28.1%   5.0   70s
+ 125419 85333 1256.53840   40  128 1699.70000 1229.16373  27.7%   5.0   75s
+ 135916 92409 1697.20378   57   44 1699.70000 1235.13638  27.3%   4.9   80s
+ 145803 99023 1272.37964   42  121 1699.70000 1240.93254  27.0%   4.9   85s
+ 155679 105453 1680.50971   65   50 1699.70000 1247.06663  26.6%   4.9   90s
+ 165412 111753 1641.42785   54   55 1699.70000 1252.72929  26.3%   4.9   95s
+ 174644 117769 1461.02127   65   89 1699.70000 1257.90080  26.0%   4.8  100s
+
+Cutting planes:
+  Implied bound: 7
+
+Explored 174657 nodes (846073 simplex iterations) in 100.01 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 3: 1699.7 3316.05 4941 
+
+Time limit reached
+Best objective 1.699700000000e+03, best bound 1.257900804616e+03, gap 25.9928%

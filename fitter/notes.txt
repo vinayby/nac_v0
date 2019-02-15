@@ -1,0 +1,3 @@
+- x.sum(i,*) == 1 for i in tasks 
+  Is not 1-and-only-1. Make c_1b default with tasks_per_router = [1]*M
+- dist to hops, and make it a tupledict 

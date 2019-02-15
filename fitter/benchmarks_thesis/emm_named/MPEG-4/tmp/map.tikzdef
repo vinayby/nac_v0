@@ -1,0 +1,1 @@
+\def\rtmap{{"-", "au", "vu", "-", "bab", "upsamp", "sdram", "medcpu", "risc", "sram2", "rast", "sram1", "-", "idct", "adsp", "-"}};

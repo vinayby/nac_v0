@@ -1,0 +1,11 @@
+8
+8
+HS inmem1 inmem2 jug2 VS jug1 mem odisp
+inmem1 HS 128
+inmem1 inmem2 64
+inmem2 jug2 64
+jug2 mem 64
+mem odisp 64
+jug1 mem 64
+VS jug1 64
+HS VS 64

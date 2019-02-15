@@ -1,0 +1,9 @@
+-  taskid: you shenme yong yi?
+- 'recv x from t as id1' business
+-  msg_object: instance_name | parameter; // parameter: instance_name EQUALS passed_value; 
+      -  passing parameters?
+-  sourcetags: 'TODO rf', 'TODO depr'
+-  SCS_BRAM|SCS_BRAM#(4): single-port-bram|4-port-bram
+-  can cleanup the grammar considering the cpp pass: e.g. using include files, uint8_t, etc., enumeration 
+-  
+

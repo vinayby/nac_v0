@@ -1,0 +1,49 @@
+
+todo.txt
+
+make; make vgen; make headers; make tb
+cd project_1/project_1.sim/sim_1/behav/
+./compile.sh && ./elaborate.sh && ./simulate.sh 
+./main_simv&
+sleep 2
+cd -
+./tb
+
+
+- syntax check mode
+- makefile: use rel paths
+- cleanup bviwrappers folder to remove stale files before regen
+  - well, may be not necessary
+- see https://github.com/slaclab/ruckus/blob/master/vivado_build.tcl
+- rogue/slac: https://docs.google.com/presentation/d/1m2nqGzCZXsQV8ul4d0Gk7xmwn-OLW1iucTLm7LLp9eg/edit#slide=id.g23f08d7f0c_9_129
+- ref 'vivado using tcl scripting'
+- start nareferences
+
+- ref. https://github.com/cornell-brg/pymtl-tut-hls
+- generate, well named and placed, log files for {hls_build, vgen, sim, synth}
+- see -show-schedule
+- compile_simlib -language all -dir {/a/b/c} -simulator vcs_mx -family all
+- try forcing ml605 part to vhls and vivado?
+- forthnoc use connect style topology and routing files as inputs
+- rogue/slac: https://docs.google.com/presentation/d/1m2nqGzCZXsQV8ul4d0Gk7xmwn-OLW1iucTLm7LLp9eg/edit#slide=id.g23f08d7f0c_9_129
+- mangle instancenames in bsv
+- _read axis i/o wrapper
+
+General
+
+-- readlists
+https://tomassetti.me/parsing-in-python/
+
+- memory objects can exist inside a vhls kernel too, whose interfaces can be exported to its top?
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+for recv, send, read_storageobject
+---------------------------------------------------------------------------------------------------------------------
+function Action requestRead(RequestTag tag,EAddress64 addr) =
+   oCmd.enq(CacheCommand { ctag: tag, cch: 0, com: Read_cl_s, cea: addr, csize: 128, cabt: Strict });
+   
+

@@ -1,0 +1,50 @@
+strict digraph  {
+	"VS
+2"	 [d=2];
+	"jug1
+2"	 [d=2];
+	"VS
+2" -> "jug1
+2"	 [label=64,
+		volume=64];
+	"jug2
+2"	 [d=2];
+	"mem
+2"	 [d=2];
+	"jug2
+2" -> "mem
+2"	 [label=64,
+		volume=64];
+	"jug1
+2" -> "mem
+2"	 [label=64,
+		volume=64];
+	"odisp
+2"	 [d=2];
+	"mem
+2" -> "odisp
+2"	 [label=64,
+		volume=64];
+	"HS
+2"	 [d=2];
+	"HS
+2" -> "VS
+2"	 [label=64,
+		volume=64];
+	"inmem2
+2"	 [d=2];
+	"inmem2
+2" -> "jug2
+2"	 [label=64,
+		volume=64];
+	"inmem1
+2"	 [d=2];
+	"inmem1
+2" -> "HS
+2"	 [label=128,
+		volume=128];
+	"inmem1
+2" -> "inmem2
+2"	 [label=64,
+		volume=64];
+}

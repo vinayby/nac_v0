@@ -1,0 +1,32 @@
+%Nodes
+\node[squarenode] (IMD) [ ] {IMD};
+\node[squarenode] (MC) [ ] {MC};
+\node[squarenode] (IQ) [ ] {IQ};
+\node[squarenode] (IDCT) [ ] {IDCT};
+\node[squarenode] (VLD) [ ] {VLD};
+\node[squarenode] (BR1) [ ] {BR1};
+\node[squarenode] (BR2) [ ] {BR2};
+\node[squarenode] (ADD) [ ] {ADD};
+\node[squarenode] (MEM1) [ ] {MEM1};
+\node[squarenode] (HUF2) [ ] {HUF2};
+\node[squarenode] (HUF1) [ ] {HUF1};
+\node[squarenode] (MEM2) [ ] {MEM2};
+\node[squarenode] (BUF) [ ] {BUF};
+\node[squarenode] (SUM) [ ] {SUM};
+%Lines
+%(post-edit positioning as necessary)
+\draw[triangle 45 - triangle 45] (IMD) -- (SUM)  node [edgelabel] {4060} ;
+\draw[triangle 45 - triangle 45] (MC) -- (ADD)  node [edgelabel] {100} ;
+\draw[triangle 45 - triangle 45] (IQ) -- (IDCT)  node [edgelabel] {3672} ;
+\draw[triangle 45 - triangle 45] (IDCT) -- (ADD)  node [edgelabel] {3672} ;
+\draw[triangle 45 - triangle 45] (VLD) -- (IQ)  node [edgelabel] {250} ;
+\draw[triangle 45 - triangle 45] (VLD) -- (HUF1)  node [edgelabel] {25} ;
+\draw[triangle 45 - triangle 45] (VLD) -- (BR1)  node [edgelabel] {25} ;
+\draw[triangle 45 - triangle 45] (VLD) -- (MC)  node [edgelabel] {187} ;
+\draw[triangle 45 - triangle 45] (BR1) -- (BR2)  node [edgelabel] {2083} ;
+\draw[triangle 45 - triangle 45] (BR2) -- (BUF)  node [edgelabel] {10} ;
+\draw[triangle 45 - triangle 45] (ADD) -- (MEM2)  node [edgelabel] {380} ;
+\draw[triangle 45 - triangle 45] (MEM1) -- (MC)  node [edgelabel] {500} ;
+\draw[triangle 45 - triangle 45] (MEM1) -- (MEM2)  node [edgelabel] {3672} ;
+\draw[triangle 45 - triangle 45] (HUF1) -- (HUF2)  node [edgelabel] {500} ;
+\draw[triangle 45 - triangle 45] (SUM) -- (BUF)  node [edgelabel] {500} ;

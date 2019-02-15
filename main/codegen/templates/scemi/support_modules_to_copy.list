@@ -1,0 +1,17 @@
+lib//Libraries/mkSceMiLinkTypeParameter.v
+lib//Libraries/mkSceMiUInt32Parameter.v
+lib//Libraries/mkSceMiUInt64Parameter.v
+lib//Verilog/ClockInverter.v
+lib//Verilog/FIFOL1.v
+lib//Verilog/MakeClock.v
+lib//Verilog/MakeReset0.v
+lib//Verilog/MakeResetA.v
+lib//Verilog/ProbeHook.v
+lib//Verilog/ResetEither.v
+lib//Verilog/SyncBit05.v
+lib//Verilog/SyncFIFO.v
+lib//Verilog/SyncHandshake.v
+lib//Verilog/SyncPulse.v
+lib//Verilog/SyncReset0.v
+lib//Verilog/SyncResetA.v
+lib//Verilog/RevertReg.v

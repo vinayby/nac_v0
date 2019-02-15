@@ -1,0 +1,85 @@
+12dec18 - begin refactor
+
+- SEND/RECV macros, if taskname is passed in as a number, accept as-is, instead of tid_
+
+20oct18
+- if all recv statements of a task are @any, no need for mergeFifo...simplify fromnetwork
+  - if splmsgs not needed, remove them all too... or just do not mkConnect them
+- par{ recv t1 from @any; recv t2 from @any;} --> check for expected type before recv'ing
+
+-------------------------------------
+
+bram x,p,1 case for len x > 1
+
+http://www.cl.cam.ac.uk/research/srg/han/hprls/orangepath/system-integrator/hpr-system-integrator.html
+http://www.cl.cam.ac.uk/research/srg/han/hprls/orangepath/
+
+may28
+- ap_fifo use array in sig, for 1-size-ff, ptr
+- 
+
+
+pstargets:
+  refactor
+    - NTypes
+        - TLog(NUM_NODES) DEST_WIDTH FORCEADDR_WIDTH; and everywhere else
+
+  WORK
+  -- redo InterFPGA
+  -- pass ap_fifo as array (so can keep signature the same according to #defines)
+  -- stitching 2-nocs
+  -- mfpga, incl. stitching 2-nocs; gemv-on-a-ring
+  -- identify document and implement coordination-patterns
+    - implies cleaning up mergefifo,  and use of something for ordered packet reception
+  -- storage objects 
+  -- applications:
+  -- architecture optimization
+    -only vc0 force
+    -
+
+  WRITEUP
+  -- 
+  MISC
+  - ref: https://github.com/cornell-brg/pymtl-tut-hls/blob/master/README.md
+    wrap host node of an na-system into pymtl and...?
+     (good resources for vlsi-design-lab: https://web.csl.cornell.edu/courses/ece5745/handouts.html)
+     https://github.com/Xilinx/RFNoC-HLS-NeuralNet
+
+17nov
+  --  cleanup @any iff_use_mergefifo business in the recv statement; start with identifying coordination patterns first
+  --  upgrade mergeFifo for hybrid or mixed use; time of arrival order is not apt for longer arrays
+  --  integrate completion buffer for ordering; so need a unified/common structure together with the mergeFifo etc.,;
+      even a dedicated verison may be fine if the task pattern demands so
+  --  instance and typename mangling
+  --  go over scs's again
+  ---- add pragmas to scs objects
+  --  fnoc tests
+  X-  generate multifpga/loop_2fpga/*v1nov9 automatically, with apt taskmaps etc.,
+  - mfpga: NUM_NODES = #(fpga1) + #(fpga2)
+  - allow specifying two separate networks? stitching... works for mfpga too
+
+draft-todos-old
+
+- have a fixed size buffer and use dynamic allocation with sync-send-recv?
+
+- pgmv (v3small_plus) works withotu barrier on x too
+- ~/git.si/naexamples/applications/RingMV/v1ring/ 
+  blocks at p4... when using ring without vlinks... syncflit gets merged into some other flit stream arriving at node 7/local
+  and so no response is sent... write about this...
+ 
+** this and no state-entry-exit, and no sync-debug... 
+	  %if b.name in ['send', 'scatter', 'barrier', 'recv', 'gather']:
+     noAction;
+    -- send ok, but recv tocheck
+ 
+
+- vivado hls 2017.2 web ref
+- function specific make target to build hls
+- pragma once?
+
+- broadcast all to all
+  case1: explicit tasks
+    - order of data is suspect, need to define behaviour properly
+  case2: virtual tasks
+    - @any/group should be interpreted as a task-parameter for each instance, 
+      which is not happening right now with virtual tasks

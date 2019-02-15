@@ -1,0 +1,18 @@
+[
+    "BR2", 
+    "HUF1", 
+    "HUF2", 
+    "BUF", 
+    "BR1", 
+    "VLD", 
+    "IQ", 
+    "SUM", 
+    "MEM2", 
+    "ADD", 
+    "IDCT", 
+    "IMD", 
+    "MEM1", 
+    "MC", 
+    "-", 
+    "-"
+]

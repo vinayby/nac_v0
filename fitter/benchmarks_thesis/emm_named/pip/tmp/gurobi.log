@@ -1,0 +1,195 @@
+
+Gurobi 7.5.1 (linux64, Python) logging started Fri Sep 29 19:10:28 2017
+
+Academic license - for non-commercial use only
+Changed value of parameter TimeLimit to 100.0
+   Prev: 1e+100  Min: 0.0  Max: 1e+100  Default: 1e+100
+Changed value of parameter MIPFocus to 2
+   Prev: 0  Min: 0  Max: 3  Default: 0
+Optimize a model with 25 rows, 81 columns and 160 nonzeros
+Model has 576 quadratic objective terms
+Model has 8 quadratic constraints
+Variable types: 1 continuous, 80 integer (72 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  QMatrix range    [6e+01, 5e+02]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  QObjective range [6e+00, 5e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+  QRHS range       [2e+00, 2e+00]
+Modified 72 Q diagonals
+Modified 18 Q diagonals
+Modified 18 Q diagonals
+Modified 18 Q diagonals
+Modified 18 Q diagonals
+Modified 18 Q diagonals
+Modified 18 Q diagonals
+Modified 18 Q diagonals
+Modified 18 Q diagonals
+Presolve time: 0.00s
+Presolved: 25 rows, 81 columns, 160 nonzeros
+Presolved model has 648 quadratic objective terms
+Variable types: 1 continuous, 80 integer (72 binary)
+Presolve removed 8 rows and 9 columns
+Presolved: 17 rows, 72 columns, 144 nonzeros
+Presolved model has 648 quadratic objective terms
+
+
+Root relaxation: objective -3.370689e+02, 85 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 -337.06891    0   68          -    6.00000      -     -    0s
+     0     2 -337.06891    0   68          -    6.00000      -     -    0s
+H  407   371                    55359.200000   12.00000   100%   4.7    0s
+H  407   352                     637.2000000   12.00000  98.1%   4.7    0s
+H  491   393                     498.4000000   12.00000  97.6%   8.4    0s
+H  544   401                     495.2000000   12.00000  97.6%  10.1    0s
+H  996   478                     492.0000000   12.00000  97.6%  12.4    0s
+H 1329   514                     428.0000000   12.00000  97.2%  12.9    0s
+
+Cutting planes:
+  Cover: 49
+  Implied bound: 48
+  Inf proof: 24
+
+Explored 9023 nodes (133775 simplex iterations) in 3.50 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 6: 428 492 495.2 ... 55359.2
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 4.280000000000e+02, best bound 4.280000000000e+02, gap 0.0000%
+
+Gurobi 7.5.1 (linux64, Python) logging started Fri Sep 29 19:15:17 2017
+
+Academic license - for non-commercial use only
+Changed value of parameter TimeLimit to 100.0
+   Prev: 1e+100  Min: 0.0  Max: 1e+100  Default: 1e+100
+Changed value of parameter MIPFocus to 2
+   Prev: 0  Min: 0  Max: 3  Default: 0
+Optimize a model with 25 rows, 81 columns and 160 nonzeros
+Model has 576 quadratic objective terms
+Model has 8 quadratic constraints
+Variable types: 1 continuous, 80 integer (72 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  QMatrix range    [6e+01, 5e+02]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  QObjective range [6e+00, 5e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+  QRHS range       [2e+00, 2e+00]
+Modified 72 Q diagonals
+Modified 18 Q diagonals
+Modified 18 Q diagonals
+Modified 18 Q diagonals
+Modified 18 Q diagonals
+Modified 18 Q diagonals
+Modified 18 Q diagonals
+Modified 18 Q diagonals
+Modified 18 Q diagonals
+Presolve time: 0.00s
+Presolved: 25 rows, 81 columns, 160 nonzeros
+Presolved model has 648 quadratic objective terms
+Variable types: 1 continuous, 80 integer (72 binary)
+Presolve removed 8 rows and 9 columns
+Presolved: 17 rows, 72 columns, 144 nonzeros
+Presolved model has 648 quadratic objective terms
+
+
+Root relaxation: objective -3.370689e+02, 85 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 -337.06891    0   68          -    6.00000      -     -    0s
+     0     2 -337.06891    0   68          -    6.00000      -     -    0s
+H  407   371                    55359.200000   12.00000   100%   4.7    0s
+H  407   352                     637.2000000   12.00000  98.1%   4.7    0s
+H  491   393                     498.4000000   12.00000  97.6%   8.4    0s
+H  544   401                     495.2000000   12.00000  97.6%  10.1    0s
+H  996   478                     492.0000000   12.00000  97.6%  12.4    0s
+H 1329   514                     428.0000000   12.00000  97.2%  12.9    0s
+
+Cutting planes:
+  Cover: 49
+  Implied bound: 48
+  Inf proof: 24
+
+Explored 9023 nodes (133775 simplex iterations) in 3.49 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 6: 428 492 495.2 ... 55359.2
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 4.280000000000e+02, best bound 4.280000000000e+02, gap 0.0000%
+
+Gurobi 7.5.1 (linux64, Python) logging started Fri Sep 29 19:41:46 2017
+
+Academic license - for non-commercial use only
+Changed value of parameter TimeLimit to 100.0
+   Prev: 1e+100  Min: 0.0  Max: 1e+100  Default: 1e+100
+Changed value of parameter MIPFocus to 2
+   Prev: 0  Min: 0  Max: 3  Default: 0
+Optimize a model with 25 rows, 81 columns and 160 nonzeros
+Model has 576 quadratic objective terms
+Model has 8 quadratic constraints
+Variable types: 1 continuous, 80 integer (72 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  QMatrix range    [6e+01, 5e+02]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  QObjective range [6e+00, 5e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+  QRHS range       [2e+00, 2e+00]
+Modified 72 Q diagonals
+Modified 18 Q diagonals
+Modified 18 Q diagonals
+Modified 18 Q diagonals
+Modified 18 Q diagonals
+Modified 18 Q diagonals
+Modified 18 Q diagonals
+Modified 18 Q diagonals
+Modified 18 Q diagonals
+Presolve time: 0.00s
+Presolved: 25 rows, 81 columns, 160 nonzeros
+Presolved model has 648 quadratic objective terms
+Variable types: 1 continuous, 80 integer (72 binary)
+Presolve removed 8 rows and 9 columns
+Presolved: 17 rows, 72 columns, 144 nonzeros
+Presolved model has 648 quadratic objective terms
+
+
+Root relaxation: objective -3.370689e+02, 85 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 -337.06891    0   68          -    6.00000      -     -    0s
+     0     2 -337.06891    0   68          -    6.00000      -     -    0s
+H  407   371                    55359.200000   12.00000   100%   4.7    0s
+H  407   352                     637.2000000   12.00000  98.1%   4.7    0s
+H  491   393                     498.4000000   12.00000  97.6%   8.4    0s
+H  544   401                     495.2000000   12.00000  97.6%  10.1    0s
+H  996   478                     492.0000000   12.00000  97.6%  12.4    0s
+H 1329   514                     428.0000000   12.00000  97.2%  12.9    0s
+
+Cutting planes:
+  Cover: 49
+  Implied bound: 48
+  Inf proof: 24
+
+Explored 9023 nodes (133775 simplex iterations) in 3.37 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 6: 428 492 495.2 ... 55359.2
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 4.280000000000e+02, best bound 4.280000000000e+02, gap 0.0000%

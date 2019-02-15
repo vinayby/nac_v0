@@ -1,0 +1,18 @@
+strict digraph  {
+	jug2 -> mem	 [label=64.0,
+		volume=64.0];
+	jug1 -> mem	 [label=64.0,
+		volume=64.0];
+	inmem2 -> jug2	 [label=64.0,
+		volume=64.0];
+	HS -> VS	 [label=64.0,
+		volume=64.0];
+	inmem1 -> inmem2	 [label=64.0,
+		volume=64.0];
+	inmem1 -> HS	 [label=128.0,
+		volume=128.0];
+	mem -> odisp	 [label=64.0,
+		volume=64.0];
+	VS -> jug1	 [label=64.0,
+		volume=64.0];
+}

@@ -1,0 +1,4 @@
+-   	idct 	-     	-     
+risc	sram2	upsamp	medcpu
+au  	bab  	sdram 	rast  
+-   	adsp 	vu    	sram1 

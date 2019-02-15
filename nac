@@ -1,0 +1,13 @@
+#! /usr/bin/env python3
+# -*- coding: utf-8 -*-
+# 2016 vby
+#############################vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4
+"""
+
+"""
+from main.nac import run
+import os,sys 
+if os.path.basename(sys.argv[0]) == 'nac':
+    run()
+elif os.path.basename(sys.argv[0]) == 'nax':
+    print('nax')

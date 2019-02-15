@@ -1,0 +1,78 @@
+strict digraph  {
+	"risc
+2"	 [d=2];
+	"sdram
+2"	 [d=2];
+	"adsp
+2"	 [d=2];
+	"sdram
+2" -> "adsp
+2"	 [label=1,
+		volume=1];
+	"upsamp
+2"	 [d=2];
+	"sdram
+2" -> "upsamp
+2"	 [label=910,
+		volume=910];
+	"bab
+2"	 [d=2];
+	"sdram
+2" -> "bab
+2"	 [label=32,
+		volume=32];
+	"rast
+2"	 [d=2];
+	"rast
+2" -> "sdram
+2"	 [label=600,
+		volume=600];
+	"sram1
+2"	 [d=2];
+	"rast
+2" -> "sram1
+2"	 [label=40,
+		volume=40];
+	"sram2
+2"	 [d=2];
+	"sram2
+2" -> "risc
+2"	 [label=500,
+		volume=500];
+	"sram2
+2" -> "upsamp
+2"	 [label=670,
+		volume=670];
+	"idct
+2"	 [d=2];
+	"sram2
+2" -> "idct
+2"	 [label=250,
+		volume=250];
+	"sram2
+2" -> "bab
+2"	 [label=173,
+		volume=173];
+	"medcpu
+2"	 [d=2];
+	"medcpu
+2" -> "sdram
+2"	 [label=60,
+		volume=60];
+	"medcpu
+2" -> "sram1
+2"	 [label=40,
+		volume=40];
+	"au
+2"	 [d=2];
+	"au
+2" -> "sdram
+2"	 [label=1,
+		volume=1];
+	"vu
+2"	 [d=2];
+	"vu
+2" -> "sdram
+2"	 [label=190,
+		volume=190];
+}

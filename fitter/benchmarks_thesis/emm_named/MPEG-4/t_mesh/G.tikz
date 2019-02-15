@@ -1,0 +1,28 @@
+%Nodes
+\node[squarenode] (sdram) [ ] {sdram};
+\node[squarenode] (adsp) [ ] {adsp};
+\node[squarenode] (idct) [ ] {idct};
+\node[squarenode] (upsamp) [ ] {upsamp};
+\node[squarenode] (medcpu) [ ] {medcpu};
+\node[squarenode] (risc) [ ] {risc};
+\node[squarenode] (sram2) [ ] {sram2};
+\node[squarenode] (rast) [ ] {rast};
+\node[squarenode] (sram1) [ ] {sram1};
+\node[squarenode] (au) [ ] {au};
+\node[squarenode] (vu) [ ] {vu};
+\node[squarenode] (bab) [ ] {bab};
+%Lines
+%(post-edit positioning as necessary)
+\draw[triangle 45 - triangle 45] (sdram) -- (upsamp)  node [edgelabel] {910} ;
+\draw[triangle 45 - triangle 45] (sdram) -- (bab)  node [edgelabel] {32} ;
+\draw[triangle 45 - triangle 45] (sdram) -- (adsp)  node [edgelabel] {1} ;
+\draw[triangle 45 - triangle 45] (medcpu) -- (sdram)  node [edgelabel] {60} ;
+\draw[triangle 45 - triangle 45] (medcpu) -- (sram1)  node [edgelabel] {40} ;
+\draw[triangle 45 - triangle 45] (sram2) -- (upsamp)  node [edgelabel] {670} ;
+\draw[triangle 45 - triangle 45] (sram2) -- (idct)  node [edgelabel] {250} ;
+\draw[triangle 45 - triangle 45] (sram2) -- (bab)  node [edgelabel] {173} ;
+\draw[triangle 45 - triangle 45] (sram2) -- (risc)  node [edgelabel] {500} ;
+\draw[triangle 45 - triangle 45] (rast) -- (sdram)  node [edgelabel] {600} ;
+\draw[triangle 45 - triangle 45] (rast) -- (sram1)  node [edgelabel] {40} ;
+\draw[triangle 45 - triangle 45] (au) -- (sdram)  node [edgelabel] {1} ;
+\draw[triangle 45 - triangle 45] (vu) -- (sdram)  node [edgelabel] {190} ;

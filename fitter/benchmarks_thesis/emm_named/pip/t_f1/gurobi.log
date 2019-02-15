@@ -1,0 +1,106 @@
+
+Gurobi 8.0.1 (linux64, Python) logging started Sun Oct 28 01:57:44 2018
+
+Academic license - for non-commercial use only
+Changed value of parameter TimeLimit to 100.0
+   Prev: 1e+100  Min: 0.0  Max: 1e+100  Default: 1e+100
+Changed value of parameter MIPFocus to 2
+   Prev: 0  Min: 0  Max: 3  Default: 0
+Optimize a model with 17 rows, 81 columns and 144 nonzeros
+Model has 576 quadratic objective terms
+Variable types: 1 continuous, 80 integer (72 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [0e+00, 0e+00]
+  QObjective range [6e+00, 5e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+00]
+Found heuristic solution: objective 67.2000000
+Modified 72 Q diagonals
+Presolve removed 0 rows and 9 columns
+Presolve time: 0.07s
+Presolved: 17 rows, 72 columns, 144 nonzeros
+Presolved model has 648 quadratic objective terms
+Variable types: 0 continuous, 72 integer (72 binary)
+Presolved: 17 rows, 72 columns, 144 nonzeros
+Presolved model has 648 quadratic objective terms
+
+
+Root relaxation: objective -3.490689e+02, 85 iterations, 0.01 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 -349.06891    0   68   67.20000    0.00000   100%     -    0s
+H    0     0                      51.2000000    0.00000   100%     -    0s
+H    0     0                      44.8000000    0.00000   100%     -    0s
+     0     0 -340.36389    0   68   44.80000    0.00000   100%     -    0s
+H    0     0                      32.0000000    0.00000   100%     -    0s
+     0     2 -340.36389    0   68   32.00000    0.00000   100%     -    0s
+
+Cutting planes:
+  Gomory: 2
+  Implied bound: 16
+  Flow cover: 10
+  Zero half: 14
+
+Explored 1711 nodes (16554 simplex iterations) in 0.61 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 4: 32 44.8 51.2 67.2 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.200000000000e+01, best bound 3.200000000000e+01, gap 0.0000%
+
+Gurobi 8.0.1 (linux64, Python) logging started Sun Oct 28 01:59:46 2018
+
+Academic license - for non-commercial use only
+Changed value of parameter TimeLimit to 100.0
+   Prev: 1e+100  Min: 0.0  Max: 1e+100  Default: 1e+100
+Changed value of parameter MIPFocus to 2
+   Prev: 0  Min: 0  Max: 3  Default: 0
+Optimize a model with 17 rows, 81 columns and 144 nonzeros
+Model has 576 quadratic objective terms
+Variable types: 1 continuous, 80 integer (72 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [0e+00, 0e+00]
+  QObjective range [6e+00, 5e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+00]
+Found heuristic solution: objective 67.2000000
+Modified 72 Q diagonals
+Presolve removed 0 rows and 9 columns
+Presolve time: 0.00s
+Presolved: 17 rows, 72 columns, 144 nonzeros
+Presolved model has 648 quadratic objective terms
+Variable types: 0 continuous, 72 integer (72 binary)
+Presolved: 17 rows, 72 columns, 144 nonzeros
+Presolved model has 648 quadratic objective terms
+
+
+Root relaxation: objective -3.490689e+02, 85 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 -349.06891    0   68   67.20000    0.00000   100%     -    0s
+H    0     0                      51.2000000    0.00000   100%     -    0s
+H    0     0                      44.8000000    0.00000   100%     -    0s
+     0     0 -340.36389    0   68   44.80000    0.00000   100%     -    0s
+H    0     0                      32.0000000    0.00000   100%     -    0s
+     0     2 -340.36389    0   68   32.00000    0.00000   100%     -    0s
+
+Cutting planes:
+  Gomory: 2
+  Implied bound: 16
+  Flow cover: 10
+  Zero half: 14
+
+Explored 1711 nodes (16554 simplex iterations) in 0.54 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 4: 32 44.8 51.2 67.2 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.200000000000e+01, best bound 3.200000000000e+01, gap 0.0000%

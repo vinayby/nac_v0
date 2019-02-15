@@ -1,0 +1,14 @@
+{
+    "sdram": 6, 
+    "adsp": 14, 
+    "idct": 13, 
+    "risc": 8, 
+    "medcpu": 7, 
+    "sram2": 9, 
+    "rast": 10, 
+    "sram1": 11, 
+    "au": 1, 
+    "vu": 2, 
+    "bab": 4, 
+    "upsamp": 5
+}

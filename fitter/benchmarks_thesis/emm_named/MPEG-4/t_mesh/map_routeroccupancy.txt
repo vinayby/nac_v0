@@ -1,0 +1,18 @@
+[
+    "-", 
+    "-", 
+    "vu", 
+    "medcpu", 
+    "adsp", 
+    "bab", 
+    "sdram", 
+    "rast", 
+    "idct", 
+    "sram2", 
+    "upsamp", 
+    "sram1", 
+    "-", 
+    "risc", 
+    "au", 
+    "-"
+]

@@ -1,0 +1,457 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="/home/vinay/git.area/capi/.github-pandoc.css" type="text/css" />
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#nac"><span class="toc-section-number">1</span> NAC</a><ul>
+<li><a href="#common-setup"><span class="toc-section-number">1.1</span> Common setup</a><ul>
+<li><a href="#dependencies"><span class="toc-section-number">1.1.1</span> Dependencies</a></li>
+<li><a href="#simulators"><span class="toc-section-number">1.1.2</span> Simulators</a></li>
+</ul></li>
+<li><a href="#setup-from-source"><span class="toc-section-number">1.2</span> Setup from source</a></li>
+<li><a href="#usage-examples"><span class="toc-section-number">1.3</span> Usage examples</a><ul>
+<li><a href="#example-1"><span class="toc-section-number">1.3.1</span> Example 1</a></li>
+</ul></li>
+<li><a href="#synthesis"><span class="toc-section-number">1.4</span> Synthesis</a></li>
+</ul></li>
+<li><a href="#fitter"><span class="toc-section-number">2</span> Fitter</a><ul>
+<li><a href="#dependencies-1"><span class="toc-section-number">2.1</span> Dependencies</a></li>
+<li><a href="#usage-examples-1"><span class="toc-section-number">2.2</span> Usage examples</a></li>
+</ul></li>
+<li><a href="#appendix"><span class="toc-section-number">3</span> Appendix</a><ul>
+<li><a href="#nac-cli-options"><span class="toc-section-number">3.1</span> <code>nac</code> CLI options</a></li>
+</ul></li>
+</ul>
+</div>
+<h1 id="nac"><span class="header-section-number">1</span> NAC</h1>
+<p>This document: Markdown to HTML</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">pandoc</span> --css ./.github-pandoc.css -s -N --toc --toc-depth=4 README.md -o README_generated.html</code></pre></div>
+<hr />
+<h2 id="common-setup"><span class="header-section-number">1.1</span> Common setup</h2>
+<p>Necessary dependencies for using <code>nac</code> both from source and the 1-file binary executable:</p>
+<h3 id="dependencies"><span class="header-section-number">1.1.1</span> Dependencies</h3>
+<ul>
+<li>Bluespec environment</li>
+<li>Vivado and Vivado_HLS: 2016.04 recommended</li>
+<li>Miscellaneous items</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">  $ <span class="kw">sudo</span> apt install openmpi-bin 
+  $ <span class="kw">sudo</span> apt install libopenmpi-dev
+  $ <span class="kw">sudo</span> apt install astyle
+  $ <span class="kw">sudo</span> apt install m4
+
+  $ <span class="kw">if [</span> <span class="st">&quot;</span><span class="ot">$BASH_VERSION</span><span class="st">&quot;</span> <span class="ot">=</span> <span class="st">&#39;&#39;</span><span class="kw"> ]</span>; <span class="kw">then</span>     <span class="kw">echo</span> <span class="st">&quot;This is dash.&quot;</span><span class="kw">;</span> <span class="kw">else</span>     <span class="kw">echo</span> <span class="st">&quot;This is bash.&quot;</span><span class="kw">;</span> <span class="kw">fi</span>
+  <span class="co"># If the output is &quot;This is dash&quot;, make sure /bin/sh points to /bin/bash</span>
+  <span class="co"># On Ubuntu, this will do it</span>
+  $ <span class="kw">sudo</span> update-alternatives --install /bin/sh sh /bin/bash 100</code></pre></div>
+<ul>
+<li><p>Optional: syntax highlighting for <code>vim</code> users</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">  $ <span class="kw">mkdir</span> -p ~/.vim/
+  $ <span class="kw">rsync</span> -av utils/vim/ ~/.vim/</code></pre></div></li>
+</ul>
+<h3 id="simulators"><span class="header-section-number">1.1.2</span> Simulators</h3>
+<h4 id="vcs-mx-recommended"><span class="header-section-number">1.1.2.1</span> VCS-MX (recommended)</h4>
+<ul>
+<li>Copy over <code>vcs-mx</code> post-install-folder from <code>{hpc24, hpc40}:/opt/vM-2017.03/</code> to <code>/opt/vM-2017.03/</code>
+<ul>
+<li>(Originally copied from VLSI Lab <code>vlsixx:/vlsi/cad/synopsys/vcs-mx/vM-2017.03/</code>)</li>
+</ul></li>
+<li>$HOME/.bashrc</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">    <span class="co"># VCS-MX</span>
+    <span class="kw">export</span> <span class="ot">VCS_HOME=</span>/opt/vM-2017.03
+    <span class="kw">export</span> <span class="ot">PATH=$PATH</span>:<span class="ot">${VCS_HOME}</span>/bin
+    <span class="kw">export</span> <span class="ot">LM_LICENSE_FILE=$LM_LICENSE_FILE</span>:27020@10.107.90.16:27000</code></pre></div>
+<ul>
+<li>Xilinx-VCS simlib generation
+<ul>
+<li>simulation libraries need to be generated for use with VCS</li>
+<li>the first use of <code>nac</code> attempts to generate it, as a one time thing, at <code>$HOME/.config/nac/simlib_vcs/</code>
+<ul>
+<li>NOTE: <code>source /opt/Xilinx/Vivado/2016.4/settings64.sh</code> once before doing so</li>
+</ul></li>
+<li><p>OR <em>to generate manually</em>,</p>
+<pre><code>$ source /opt/Xilinx/Vivado/2016.4/settings64.sh
+$ mkdir -p $HOME/.config/nac/simlib_vcs/
+$ vivado -mode tcl
+Vivado% 
+Vivado% compile_simlib -simulator vcs_mx -dir $env(HOME)/.config/nac/simlib_vcs/</code></pre></li>
+</ul></li>
+<li>Other notes
+<ul>
+<li>Needs this somewhere during co-sim <code>sudo apt install libncurses5-dev</code></li>
+<li><s>vcs okay with 16.04 gcc-5.4.1 and <code>ld v2.26</code>; not okay with <code>ld v2.28</code> in 17.04</s> (some checks/workarounds in place)</li>
+<li><p><code>vcs</code> doesn't play well with dash on ubuntu so:</p>
+<pre><code>sudo update-alternatives --install /bin/sh sh /bin/bash 100</code></pre></li>
+</ul></li>
+</ul>
+<h4 id="iverilog"><span class="header-section-number">1.1.2.2</span> IVERILOG</h4>
+<ul>
+<li></li>
+</ul>
+<h4 id="xsim-default"><span class="header-section-number">1.1.2.3</span> XSIM (default)</h4>
+<ul>
+<li></li>
+</ul>
+<h2 id="setup-from-source"><span class="header-section-number">1.2</span> Setup from source</h2>
+<p>If setting up from source, on a fresh clone, run:</p>
+<pre class="sh"><code>git submodule update --init --recursive 
+
+pip3 install ply
+pip3 install configargparse
+pip3 install pyastyle</code></pre>
+<p>(To make a portable 1-file executable: <code>pyinstaller nac.spec</code>)</p>
+<h2 id="usage-examples"><span class="header-section-number">1.3</span> Usage examples</h2>
+<h3 id="example-1"><span class="header-section-number">1.3.1</span> Example 1</h3>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span> minimal0
+$ <span class="kw">tree</span>
+├── <span class="kw">1_sourcehls_ready</span>         <span class="co"># ignore at this stage</span>
+├── <span class="kw">cfg</span>                       
+├── <span class="kw">main.cpp</span>                  <span class="co"># sw-code for the host() task for RTL cosimulation</span>
+├── <span class="kw">natask_host.cpp</span>           <span class="co"># sw-code for the host() task for MPI simulation </span>
+<span class="kw">|</span>                             <span class="co">#    both are `essentially&#39; identical (see the `diff&#39;?)</span>
+└── <span class="kw">test.na</span>                   <span class="co"># main .na code</span>
+
+$ <span class="kw">nac</span> -c cfg test.na 
+<span class="kw">Command</span> Line Args:   -c cfg test.na
+<span class="kw">Config</span> File (cfg)<span class="kw">:</span>
+  <span class="kw">noc</span>:               _nocs/build.t_mesh__n_16__r_4_c_4__v_2__d_4__w_64_peek_vlinks/
+  <span class="kw">outdir</span>:            1_out
+  <span class="kw">vhlswrappers</span>:      1_sourcehls
+  <span class="kw">simulator</span>:         vcs
+  <span class="kw">no-task-info</span>:      true
+  <span class="kw">buffered-sr-ports</span>: true
+  <span class="kw">scemi</span>:             true
+  <span class="kw">runtime-src-list</span>:  [<span class="st">&#39;main.cpp&#39;</span>]
+  <span class="kw">mpi-src-list</span>:      [<span class="st">&#39;natask_host.cpp&#39;</span>]
+  <span class="kw">simv</span>:              state-entry-exit
+<span class="kw">Defaults</span>:
+  <span class="kw">--simulator-simlib-path</span>:/home/vinay/.config/nac/simlib_SIMULATOR
+  <span class="kw">--scemi-src-list</span>:  []
+
+<span class="kw">nochange</span>, untouched      1_out/bviwrappers/Plus1.bsv
+<span class="kw">nochange</span>, untouched      1_out/bviwrappers/Plus1f.bsv
+<span class="kw">&gt;</span> <span class="kw">generated</span>              1_sourcehls/vhls_natypes.h
+<span class="kw">&gt;</span> <span class="kw">generated</span>              1_sourcehls/plus1.cpp          <span class="co"># HLS kernel template 1 (to be filled in)</span>
+<span class="kw">&gt;</span> <span class="kw">generated</span>              1_sourcehls/plus1f.cpp         <span class="co"># HLS kernel template 2 (to be filled in)</span>
+<span class="kw">&gt;</span> <span class="kw">generated</span>              1_sourcehls/combined.cpp
+<span class="kw">&gt;</span> <span class="kw">generated</span>              1_sourcehls/vhls_script.tcl
+<span class="kw">nochange</span>, untouched      1_out/tcl/create_project.tcl
+<span class="kw">nochange</span>, untouched      1_out/tcl/open_and_synthesize.tcl
+<span class="kw">nochange</span>, untouched      1_out/src/Tasks.bsv
+<span class="kw">nochange</span>, untouched      1_out/src/CnctBridge.bsv
+<span class="kw">nochange</span>, untouched      1_out/src/NetworkSimple.bsv
+<span class="kw">nochange</span>, untouched      1_out/src/NTypes.bsv
+<span class="kw">nochange</span>, untouched      1_out/src/Top.bsv
+<span class="kw">nochange</span>, untouched      1_out/src/NATypes.bsv
+<span class="kw">nochange</span>, untouched      1_out/src/Tb.bsv
+<span class="kw">nochange</span>, untouched      1_out/tb/tb.v
+<span class="kw">nochange</span>, untouched      1_out/sim/Makefile
+<span class="kw">nochange</span>, untouched      1_out/tcl/vhls_script.tcl
+<span class="kw">nochange</span>, untouched      1_out/tbscemi/scemi_na_util.h
+<span class="kw">nochange</span>, untouched      1_out/scemi/SceMiLayer.bsv
+
+$ <span class="co">### could copy over the ready HLS kernels from the *_ready folder</span>
+$ <span class="kw">cp</span> 1_sourcehls_ready/plus1*cpp 1_sourcehls/</code></pre></div>
+<h4 id="mpi-simulation"><span class="header-section-number">1.3.1.1</span> MPI simulation</h4>
+<p>```bash $ nac -c cfg test.na -mpi Command Line Args: -c cfg test.na -mpi Config File (cfg): noc: _nocs/build.t_mesh__n_16__r_4_c_4__v_2__d_4__w_64_peek_vlinks/ outdir: 1_out vhlswrappers: 1_sourcehls simulator: vcs no-task-info: true buffered-sr-ports: true scemi: true runtime-src-list: ['main.cpp'] mpi-src-list: ['natask_host.cpp'] simv: state-entry-exit Defaults: --simulator-simlib-path:/home/vinay/.config/nac/simlib_SIMULATOR --scemi-src-list: []</p>
+<p>nochange, untouched 1_out/bviwrappers/Plus1.bsv nochange, untouched 1_out/bviwrappers/Plus1f.bsv nochange, untouched 1_sourcehls/vhls_natypes.h nochange, untouched 1_sourcehls/combined.cpp nochange, untouched 1_sourcehls/vhls_script.tcl nochange, untouched 1_out/tcl/create_project.tcl nochange, untouched 1_out/tcl/open_and_synthesize.tcl &gt; generated 1_out/mpimodel/mpimodel_main.cpp &gt; generated 1_out/mpimodel/mpimodel.h &gt; generated 1_out/mpimodel/Makefile &gt; generated 1_out/mpimodel/rewrapped_hwkernels.cpp</p>
+<p>$ cd 1_out/mpimodel/ $ make m4 -P ../libna/na_hostmacros.m4 natask_host.cpp &gt; natask_host.postm4.cpp mpic++ -Wfatal-errors -o empi -I /include/ -I../libs/vhls_include -I ../libna -I ../../1_sourcehls mpimodel_main.cpp natask_host.postm4.cpp .09:07:01 {master *} ~/git.si/naap18/minimal0_recreate/1_out/mpimodel$ make run</p>
+<p>$ mpirun -np 5 --output-filename 1out ./empi ###---------- this is a deliberate abort---------------------- MPI_ABORT was invoked on rank 1 in communicator MPI_COMM_WORLD with errorcode 0. ###-----------------------------------------------------------</p>
+<p>$ tree # output from each rank go to these files . ├── 1out.1.0 ├── 1out.1.1 ├── 1out.1.2 ├── 1out.1.3 ├── 1out.1.4 $ # na task_id (NoC port_id) to rank_id mapping: $ # cat ../sim/taskmap.json --&gt; host is rank 1, echo is rank 2, etc.,</p>
+<p>$ cat 1out.1.1</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">start</span>:host na_task_id=10 rank=1
+<span class="kw">-&gt;</span>  x=X { v: 0000x0b5 }
+<span class="kw">&lt;-</span>  rx=X { v: 0000x119 }
+<span class="kw">-&gt;</span>  xf=XF { v: 000001.2 a: 000000x1 b: <span class="kw">&lt;</span>V 1, 1, 1, 1, <span class="kw">&gt;</span>, c: <span class="kw">&lt;</span>V 1.200000 1.200000 1.200000 <span class="kw">&gt;</span>, e: <span class="kw">&lt;</span>V 1.200000 1.200000 <span class="kw">&gt;</span>, d: 00000001 f: 01.09999 }
+<span class="kw">&lt;-</span>  rxf=XF { v: 2.300000 a: 000000x2 b: <span class="kw">&lt;</span>V 2, 2, 2, 2, <span class="kw">&gt;</span>, c: <span class="kw">&lt;</span>V 2.300000 2.300000 2.300000 <span class="kw">&gt;</span>, e: <span class="kw">&lt;</span>V 2.300000 2.300000 <span class="kw">&gt;</span>, d: 00000002 f: 01.09999 }
+<span class="kw">-&gt;</span>  ws=WS { weight: 01.29999 x: 00180.77 y: 00106.83 }
+<span class="kw">&lt;-</span>  rws=WS { weight: 01.29999 x: 00180.77 y: 00106.83 }
+<span class="kw">-&gt;</span>  p=Pixel { rgb: <span class="kw">&lt;</span>V 65, 66, 67, <span class="kw">&gt;</span>, }
+<span class="kw">&lt;-</span>  rp=Pixel { rgb: <span class="kw">&lt;</span>V 65, 66, 67, <span class="kw">&gt;</span>, }
+<span class="kw">-&gt;</span>  x=X { v: 0000x0b5 }
+<span class="kw">&lt;-</span>  rx=X { v: 0000x119 }
+<span class="kw">-&gt;</span>  xf=XF { v: 1.200000 a: 000000x1 b: <span class="kw">&lt;</span>V 1, 1, 1, 1, <span class="kw">&gt;</span>, c: <span class="kw">&lt;</span>V 1.200000 1.200000 1.200000 <span class="kw">&gt;</span>, e: <span class="kw">&lt;</span>V 1.200000 1.200000 <span class="kw">&gt;</span>, d: 00000001 f: 01.09999 }
+<span class="kw">&lt;-</span>  rxf=XF { v: 2.300000 a: 000000x2 b: <span class="kw">&lt;</span>V 2, 2, 2, 2, <span class="kw">&gt;</span>, c: <span class="kw">&lt;</span>V 2.300000 2.300000 2.300000 <span class="kw">&gt;</span>, e: <span class="kw">&lt;</span>V 2.300000 2.300000 <span class="kw">&gt;</span>, d: 00000002 f: 01.09999 }
+<span class="kw">-&gt;</span>  ws=WS { weight: 01.29999 x: 00180.77 y: 00106.83 }
+<span class="kw">&lt;-</span>  rws=WS { weight: 01.29999 x: 00180.77 y: 00106.83 }
+<span class="kw">-&gt;</span>  p=Pixel { rgb: <span class="kw">&lt;</span>V 65, 66, 67, <span class="kw">&gt;</span>, }
+<span class="kw">&lt;-</span>  rp=Pixel { rgb: <span class="kw">&lt;</span>V 65, 66, 67, <span class="kw">&gt;</span>, }
+<span class="kw">-&gt;</span>  x=X { v: 0000x0b5 }
+<span class="kw">&lt;-</span>  rx=X { v: 0000x119 }
+<span class="kw">-&gt;</span>  xf=XF { v: 1.200000 a: 000000x1 b: <span class="kw">&lt;</span>V 1, 1, 1, 1, <span class="kw">&gt;</span>, c: <span class="kw">&lt;</span>V 1.200000 1.200000 1.200000 <span class="kw">&gt;</span>, e: <span class="kw">&lt;</span>V 1.200000 1.200000 <span class="kw">&gt;</span>, d: 00000001 f: 01.09999 }
+<span class="kw">&lt;-</span>  rxf=XF { v: 2.300000 a: 000000x2 b: <span class="kw">&lt;</span>V 2, 2, 2, 2, <span class="kw">&gt;</span>, c: <span class="kw">&lt;</span>V 2.300000 2.300000 2.300000 <span class="kw">&gt;</span>, e: <span class="kw">&lt;</span>V 2.300000 2.300000 <span class="kw">&gt;</span>, d: 00000002 f: 01.09999 }
+<span class="kw">-&gt;</span>  ws=WS { weight: 01.29999 x: 00180.77 y: 00106.83 }
+<span class="kw">&lt;-</span>  rws=WS { weight: 01.29999 x: 00180.77 y: 00106.83 }
+<span class="kw">-&gt;</span>  p=Pixel { rgb: <span class="kw">&lt;</span>V 65, 66, 67, <span class="kw">&gt;</span>, }
+<span class="kw">&lt;-</span>  rp=Pixel { rgb: <span class="kw">&lt;</span>V 65, 66, 67, <span class="kw">&gt;</span>, }
+<span class="kw">-&gt;</span>  x=X { v: 0000x0b5 }
+<span class="kw">&lt;-</span>  rx=X { v: 0000x119 }
+<span class="kw">-&gt;</span>  xf=XF { v: 1.200000 a: 000000x1 b: <span class="kw">&lt;</span>V 1, 1, 1, 1, <span class="kw">&gt;</span>, c: <span class="kw">&lt;</span>V 1.200000 1.200000 1.200000 <span class="kw">&gt;</span>, e: <span class="kw">&lt;</span>V 1.200000 1.200000 <span class="kw">&gt;</span>, d: 00000001 f: 01.09999 }
+<span class="kw">&lt;-</span>  rxf=XF { v: 2.300000 a: 000000x2 b: <span class="kw">&lt;</span>V 2, 2, 2, 2, <span class="kw">&gt;</span>, c: <span class="kw">&lt;</span>V 2.300000 2.300000 2.300000 <span class="kw">&gt;</span>, e: <span class="kw">&lt;</span>V 2.300000 2.300000 <span class="kw">&gt;</span>, d: 00000002 f: 01.09999 }
+<span class="kw">-&gt;</span>  ws=WS { weight: 01.29999 x: 00180.77 y: 00106.83 }
+<span class="kw">&lt;-</span>  rws=WS { weight: 01.29999 x: 00180.77 y: 00106.83 }
+<span class="kw">-&gt;</span>  p=Pixel { rgb: <span class="kw">&lt;</span>V 65, 66, 67, <span class="kw">&gt;</span>, }
+<span class="kw">&lt;-</span>  rp=Pixel { rgb: <span class="kw">&lt;</span>V 65, 66, 67, <span class="kw">&gt;</span>, }
+[<span class="kw">0.00457907</span>] end:host na_task_id=10 rank=1</code></pre></div>
+<h4 id="rtl-cosimulation"><span class="header-section-number">1.3.1.2</span> RTL-cosimulation</h4>
+<pre><code>$ 
+$ # OPEN two terminals (|| tmux || screen)
+
+### TERMINAL-1
+
+TERMINAL 1$ cd 1_out/sim/
+TERMINAL 1$ source /opt/Xilinx/Vivado/2016.4/settings64.sh
+TERMINAL 1$ make scemi_ces
+# &lt; SYNTHESIS AND SIMULATION OUTPUT NOT SHOWN &gt;
+# This simulation will end when TERMINAL-2 software program exits
+
+### TERMINAL-2
+
+TERMINAL 2$ make tb_scemi_run
+until lsof -i :3375; do sleep 1; done; stdbuf -oL -eL ./tb | tee r.log
+# when TERMINAL 1 simulation starts, this will execute
+
+COMMAND     PID  USER   FD   TYPE   DEVICE SIZE/OFF NODE NAME
+main_simv 17728 vinay   32u  IPv4 16316676      0t0  TCP *:3375 (LISTEN)
+.-&gt; x=X { v: 0000x0b5 }
+&lt;-  rx=X { v: 0000x119 }
+.-&gt; xf=XF { v: 000001.2 a: 000000x1 b: &lt;V 1, 1, 1, 1, &gt;, c: &lt;V 1.200000 1.200000 1.200000 &gt;, e: &lt;V 1.200000 1.200000 &gt;, d: 00000001 f: 01.09999 }
+&lt;-  rxf=XF { v: 2.300000 a: 000000x2 b: &lt;V 2, 2, 2, 2, &gt;, c: &lt;V 2.300000 2.300000 2.300000 &gt;, e: &lt;V 2.300000 2.300000 &gt;, d: 00000002 f: 02.19998 }
+.-&gt; ws=WS { weight: 01.29999 x: 00180.77 y: 00106.83 }
+&lt;-  rws=WS { weight: 01.29999 x: 00180.77 y: 00106.83 }
+.-&gt; p=Pixel { rgb: &lt;V 65, 66, 67, &gt;, }
+&lt;-  rp=Pixel { rgb: &lt;V 65, 66, 67, &gt;, }
+.-&gt; x=X { v: 0000x0b5 }
+&lt;-  rx=X { v: 0000x119 }
+.-&gt; xf=XF { v: 1.200000 a: 000000x1 b: &lt;V 1, 1, 1, 1, &gt;, c: &lt;V 1.200000 1.200000 1.200000 &gt;, e: &lt;V 1.200000 1.200000 &gt;, d: 00000001 f: 01.09999 }
+&lt;-  rxf=XF { v: 2.300000 a: 000000x2 b: &lt;V 2, 2, 2, 2, &gt;, c: &lt;V 2.300000 2.300000 2.300000 &gt;, e: &lt;V 2.300000 2.300000 &gt;, d: 00000002 f: 02.19998 }
+.-&gt; ws=WS { weight: 01.29999 x: 00180.77 y: 00106.83 }
+&lt;-  rws=WS { weight: 01.29999 x: 00180.77 y: 00106.83 }
+.-&gt; p=Pixel { rgb: &lt;V 65, 66, 67, &gt;, }
+&lt;-  rp=Pixel { rgb: &lt;V 65, 66, 67, &gt;, }
+.-&gt; x=X { v: 0000x0b5 }
+&lt;-  rx=X { v: 0000x119 }
+.-&gt; xf=XF { v: 1.200000 a: 000000x1 b: &lt;V 1, 1, 1, 1, &gt;, c: &lt;V 1.200000 1.200000 1.200000 &gt;, e: &lt;V 1.200000 1.200000 &gt;, d: 00000001 f: 01.09999 }
+&lt;-  rxf=XF { v: 2.300000 a: 000000x2 b: &lt;V 2, 2, 2, 2, &gt;, c: &lt;V 2.300000 2.300000 2.300000 &gt;, e: &lt;V 2.300000 2.300000 &gt;, d: 00000002 f: 02.19998 }
+.-&gt; ws=WS { weight: 01.29999 x: 00180.77 y: 00106.83 }
+&lt;-  rws=WS { weight: 01.29999 x: 00180.77 y: 00106.83 }
+.-&gt; p=Pixel { rgb: &lt;V 65, 66, 67, &gt;, }
+&lt;-  rp=Pixel { rgb: &lt;V 65, 66, 67, &gt;, }
+.-&gt; x=X { v: 0000x0b5 }
+&lt;-  rx=X { v: 0000x119 }
+.-&gt; xf=XF { v: 1.200000 a: 000000x1 b: &lt;V 1, 1, 1, 1, &gt;, c: &lt;V 1.200000 1.200000 1.200000 &gt;, e: &lt;V 1.200000 1.200000 &gt;, d: 00000001 f: 01.09999 }
+&lt;-  rxf=XF { v: 2.300000 a: 000000x2 b: &lt;V 2, 2, 2, 2, &gt;, c: &lt;V 2.300000 2.300000 2.300000 &gt;, e: &lt;V 2.300000 2.300000 &gt;, d: 00000002 f: 02.19998 }
+.-&gt; ws=WS { weight: 01.29999 x: 00180.77 y: 00106.83 }
+&lt;-  rws=WS { weight: 01.29999 x: 00180.77 y: 00106.83 }
+.-&gt; p=Pixel { rgb: &lt;V 65, 66, 67, &gt;, }
+&lt;-  rp=Pixel { rgb: &lt;V 65, 66, 67, &gt;, }
+
+TERMINAL 2$ # To stop, &lt;control-C&gt; here, to terminate the simulation in TERMINAL 1 (not the other way around)
+TERMINAL 2$ # 
+
+### Going back to TERMINAL 1
+
+TERMINAL 1$ cd vcsb/
+TERMINAL 1$ ls -1|grep log
+   elaborate.log
+   log_echof_node.0.debug.log
+   log_echof_node.0.trace.log
+   log_echo_node.5.debug.log
+   log_echo_node.5.trace.log
+   log_FromNetworkTask_echof_node.0.debug.log
+   log_FromNetworkTask_echof_node.0.trace.log
+   log_FromNetworkTask_echo_node.5.debug.log
+   log_FromNetworkTask_echo_node.5.trace.log
+   log_FromNetworkTask_sink0_node.1.debug.log
+   log_FromNetworkTask_sink0_node.1.trace.log
+   log_sink0_node.1.debug.log
+   log_sink0_node.1.trace.log
+   log_ToNetworkTask_echof_node.0.debug.log
+   log_ToNetworkTask_echof_node.0.trace.log
+   log_ToNetworkTask_echo_node.5.debug.log
+   log_ToNetworkTask_echo_node.5.trace.log
+   log_ToNetworkTask_sink0_node.1.debug.log
+   log_ToNetworkTask_sink0_node.1.trace.log
+   scemilink.vlog_fragment
+   simulate.log
+   vlogan.log
+
+TERMINAL 1$ # ^^^^^ simulation trace logs 
+TERMINAL 1$ # cd ../ # need to pass --event-trace/-evts switch to nac though. 
+TERMINAL 1$ # make traceDB # creates a DB out of the trace files; more on this later</code></pre>
+<h2 id="synthesis"><span class="header-section-number">1.4</span> Synthesis</h2>
+<p>Running <code>make vivado</code> from the <code>sim</code> folder builds the project and associated IPs, copies the necessary files to a <code>stage_sim/</code> folder and creates a Vivado project (named <code>project_1</code>).</p>
+<p>The synthesis and implementation target VC709's FPGA by default (edit the tcl files to change). To synthesize and regenerate utilization and timing reports run: <code>make vivado_synth</code><br />
+To synthesize, implement and regenerate utilization and timing reports run: <code>make vivado_impl</code></p>
+<hr />
+<h1 id="fitter"><span class="header-section-number">2</span> Fitter</h1>
+<h2 id="dependencies-1"><span class="header-section-number">2.1</span> Dependencies</h2>
+<ul>
+<li>Uses python 2.7 because gurobipy only supports python 3.6 (and no other 3.x) which not yet native to 16.04
+<ul>
+<li>(Note: <code>nac</code> uses python3)</li>
+</ul></li>
+<li>Gurobi: <a href="http://www.gurobi.com/registration/general-reg">Register</a> to download the archive and generate an educational license (node-locked).</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">  <span class="co"># unpack the archive</span>
+  <span class="kw">cd</span> gurobi751/linux64/ <span class="co"># or gurobi801/linux64</span>
+  <span class="kw">python</span> setup.py build 
+  <span class="kw">python</span> setup.py install --user
+  
+  <span class="co"># may want to (or adjust `.bashrc` appropriately)</span>
+  <span class="kw">cd</span> ../../
+  <span class="kw">cp</span> -a gurobi751/linux64 /opt/</code></pre></div>
+<ul>
+<li>${HOME}/.bashrc
+<ul>
+<li>(Assuming the paths, and path to the downloaded license file are as below)</li>
+</ul></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">  <span class="ot">GUROBI_VERSION=</span>751 <span class="co"># or 801</span>
+  <span class="kw">export</span> <span class="ot">GUROBI_HOME=</span>/opt/gurobi<span class="ot">${GUROBI_VERSION}</span>/linux64 
+  <span class="kw">export</span> <span class="ot">PATH=</span><span class="st">&quot;</span><span class="ot">${PATH}</span><span class="st">:</span><span class="ot">${GUROBI_HOME}</span><span class="st">/bin&quot;</span>
+  <span class="kw">export</span> <span class="ot">LD_LIBRARY_PATH=</span><span class="st">&quot;</span><span class="ot">${LD_LIBRARY_PATH}</span><span class="st">:</span><span class="ot">${GUROBI_HOME}</span><span class="st">/lib&quot;</span>
+  <span class="kw">export</span> <span class="ot">GRB_LICENSE_FILE=</span><span class="st">&#39;/opt/gurobi${GUROBI_VERSION}/linux64/gurobi.lic&#39;</span></code></pre></div>
+<ul>
+<li>Other dependencies</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">      <span class="kw">pip</span> install networkx --user
+      
+      <span class="kw">sudo</span> apt-get install python-dev graphviz libgraphviz-dev pkg-config 
+      
+      <span class="kw">pip</span> install pygraphviz --user 
+      <span class="kw">pip</span> install pydotplus --user       <span class="co"># this may have needed libgraphviz-dev</span>
+    
+      <span class="co"># do above with pip3 too, pyinstaller seems to pick those up by default</span>
+      <span class="kw">pip3</span> install pygraphviz --user
+      <span class="kw">pip3</span> install pydotplus --user</code></pre></div>
+<h2 id="usage-examples-1"><span class="header-section-number">2.2</span> Usage examples</h2>
+<p>TODO</p>
+<h1 id="appendix"><span class="header-section-number">3</span> Appendix</h1>
+<h2 id="nac-cli-options"><span class="header-section-number">3.1</span> <code>nac</code> CLI options</h2>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">usage</span>: nac [-h] -c MY_CONFIG [--noc NOC_BUILDDIR] --outdir OUTDIR
+           [<span class="kw">--simverbosity</span> <span class="dt">{state-entry-exit,state-exit,to-from-network,send-recv-trace}</span>]
+           [<span class="kw">--simulator</span> SIMULATOR]
+           [<span class="kw">--simulator-simlib-path</span> SIMULATOR_SIMLIB_PATH]
+           [<span class="kw">--vhls-kernels-dir</span> VHLS_WRAPPER_OUT_DIR]
+           [<span class="kw">--bsvwrappers</span> BSV_WRAPPER_OUT_DIR] [--taskmap TASKMAP_JSON_FILE]
+           [<span class="kw">--buffered-sr-ports</span>] [--scemi] [--no-task-info]
+           [<span class="kw">--scemi-src-list</span> RT_SRC] [--runtime-data-list RT_DATA]
+           [<span class="kw">--fnoc-supports-multicast</span>] [--mode-generate-mpi-model]
+           [<span class="kw">--mpi-src-list</span> MPI_SRC] [--new-tofrom-network]
+           [<span class="kw">--enable-lateral-bulk-io</span>] [--event-trace]
+           <span class="kw">nafile</span>
+
+<span class="kw">Args</span> that start with <span class="st">&#39;--&#39;</span> (eg. --noc) <span class="kw">can</span> also be set in a config file
+<span class="kw">(specified</span> via -c<span class="kw">).</span> <span class="kw">Config</span> file syntax allows: key=value, flag=true,
+<span class="ot">stuff=</span>[<span class="kw">a</span>,b,c] (for details, see syntax at https://goo.gl/R74nmi)<span class="kw">.</span> <span class="kw">If</span> an arg is
+<span class="kw">specified</span> in more than one place, then commandline values override config file
+<span class="kw">values</span> which override defaults.
+
+<span class="kw">optional</span> arguments:
+  <span class="kw">-h</span>, --help            show this help message and exit
+
+<span class="kw">Core</span> Arguments:
+  <span class="kw">-c</span> MY_CONFIG, --my-config MY_CONFIG
+                        <span class="kw">configuration</span> file [with nac options] (default: None)
+  <span class="kw">nafile</span>                .na application description file
+  <span class="kw">--noc</span> NOC_BUILDDIR, -n NOC_BUILDDIR
+                        <span class="kw">path</span> to either of CONNECT or ForthNoC generated NoC
+                        <span class="kw">build</span> directory (default: None)
+  <span class="kw">--outdir</span> OUTDIR, -odir OUTDIR
+                        <span class="kw">path</span> to the work-directory to be generated (default:
+                        <span class="kw">None</span>)
+  <span class="kw">--simulator</span> SIMULATOR
+                        <span class="kw">simulator</span> selection (use vcs or xsim when using HLS
+                        <span class="kw">kernels</span>, and vcs for hw-sw-scemi simulation) <span class="kw">(default</span>:
+                        <span class="kw">xsim)</span>
+  <span class="kw">--vhls-kernels-dir</span> VHLS_WRAPPER_OUT_DIR, -hlskernels VHLS_WRAPPER_OUT_DIR
+                        <span class="kw">directory</span> to both place generated hardware kernel
+                        <span class="kw">wrappers</span> (C++/Vivado HLS), <span class="kw">or</span> to find ready kernels
+                        <span class="kw">(default</span>: None<span class="kw">)</span>
+  <span class="kw">--taskmap</span> TASKMAP_JSON_FILE, -map TASKMAP_JSON_FILE
+                        <span class="kw">task</span> map .json file (corresponding to the NOC chosen)
+                        <span class="kw">(default</span>: None<span class="kw">)</span>
+  <span class="kw">--scemi-src-list</span> RT_SRC
+                        <span class="kw">scemi</span> src list<span class="kw">;</span> <span class="kw">use</span> cfg file (default: [])
+  <span class="kw">--runtime-data-list</span> RT_DATA
+                        <span class="kw">runtime</span> data list<span class="kw">;</span> <span class="kw">use</span> cfg file (default: None)
+  <span class="kw">--mode-generate-mpi-model</span>, -mpi
+                        <span class="kw">generate</span> MPI model for the design entry (with HLS
+                        <span class="kw">kernels</span> only) <span class="kw">(default</span>: False<span class="kw">)</span>
+  <span class="kw">--mpi-src-list</span> MPI_SRC
+                        <span class="kw">uses</span> the <span class="st">&#39;host node&#39;</span> source files provided<span class="kw">;</span> <span class="kw">format</span>
+                        <span class="kw">nahost_&lt;</span>taskname<span class="kw">&gt;</span>.cpp (default: [])
+
+<span class="kw">Other</span> Arguments:
+  <span class="kw">--simverbosity</span> <span class="dt">{state-entry-exit,state-exit,to-from-network,send-recv-trace}</span>
+                        <span class="kw">simulation</span> time verbosity (default: None)
+  <span class="kw">--simulator-simlib-path</span> SIMULATOR_SIMLIB_PATH
+                        <span class="kw">(a</span> one-time step<span class="kw">)</span> <span class="kw">generates</span> simlibs if not present.
+                        <span class="kw">(default</span>: /home/vinay/.config/nac/simlib_SIMULATOR<span class="kw">)</span>
+  <span class="kw">--bsvwrappers</span> BSV_WRAPPER_OUT_DIR, -bsvwrap BSV_WRAPPER_OUT_DIR
+                        <span class="kw">directory</span> to place generated BSV kernel wrappers
+                        <span class="kw">(default</span>: None<span class="kw">)</span>
+  <span class="kw">--buffered-sr-ports</span>   buffer the send-recv ports exposed (TODO use
+                        <span class="kw">--buffersizingspecs</span> later of this) <span class="kw">(default</span>: False<span class="kw">)</span>
+  <span class="kw">--scemi</span>               generate SCEMI stuff (default: False)
+  <span class="kw">--no-task-info</span>        do no add an implicit task_info parameters to kernels
+                        <span class="kw">declarations</span> (default: False)
+  <span class="kw">--fnoc-supports-multicast</span>
+                        <span class="kw">specify</span> if the FNOC supports broadcast/multicast
+                        <span class="kw">feature</span> (default: False)
+  <span class="kw">--new-tofrom-network</span>, -ntfnw
+                        <span class="kw">Use</span> the newer version of to-from network (default:
+                        <span class="kw">False</span>)
+  <span class="kw">--enable-lateral-bulk-io</span>, -bulkio
+                        <span class="kw">Export</span> bulk IO ports to external-tasks (default: True)
+  <span class="kw">--event-trace</span>, -evts  A markers to record time spent at various places
+                        <span class="kw">(default</span>: False<span class="kw">)</span></code></pre></div>
+</body>
+</html>

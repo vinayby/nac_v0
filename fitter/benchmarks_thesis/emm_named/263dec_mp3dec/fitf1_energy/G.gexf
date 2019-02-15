@@ -1,0 +1,256 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf version="1.2" xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/XMLSchema-instance">
+  <graph defaultedgetype="directed" mode="static" name="">
+    <attributes class="edge" mode="static">
+      <attribute id="5" title="volume" type="string" />
+      <attribute id="6" title="NumFlits" type="integer" />
+      <attribute id="7" title="label" type="string" />
+    </attributes>
+    <attributes class="node" mode="static">
+      <attribute id="0" title="energy" type="integer" />
+      <attribute id="1" title="HostRouter" type="integer" />
+      <attribute id="2" title="d" type="integer" />
+      <attribute id="3" title="tstart" type="double" />
+      <attribute id="4" title="execution_duration" type="integer" />
+    </attributes>
+    <meta>
+      <creator>NetworkX 2.2</creator>
+      <lastmodified>28/11/2018</lastmodified>
+    </meta>
+    <nodes>
+      <node id="IMD" label="IMD">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="3" />
+          <attvalue for="2" value="2" />
+          <attvalue for="3" value="-0.0" />
+          <attvalue for="4" value="2" />
+        </attvalues>
+      </node>
+      <node id="MC" label="MC">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="5" />
+          <attvalue for="2" value="2" />
+          <attvalue for="3" value="-0.0" />
+          <attvalue for="4" value="2" />
+        </attvalues>
+      </node>
+      <node id="IQ" label="IQ">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="12" />
+          <attvalue for="2" value="2" />
+          <attvalue for="3" value="-0.0" />
+          <attvalue for="4" value="2" />
+        </attvalues>
+      </node>
+      <node id="IDCT" label="IDCT">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="8" />
+          <attvalue for="2" value="2" />
+          <attvalue for="3" value="-0.0" />
+          <attvalue for="4" value="2" />
+        </attvalues>
+      </node>
+      <node id="VLD" label="VLD">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="13" />
+          <attvalue for="2" value="2" />
+          <attvalue for="3" value="-0.0" />
+          <attvalue for="4" value="2" />
+        </attvalues>
+      </node>
+      <node id="BR1" label="BR1">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="9" />
+          <attvalue for="2" value="2" />
+          <attvalue for="3" value="12004.0" />
+          <attvalue for="4" value="2" />
+        </attvalues>
+      </node>
+      <node id="BR2" label="BR2">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="10" />
+          <attvalue for="2" value="2" />
+          <attvalue for="3" value="-0.0" />
+          <attvalue for="4" value="2" />
+        </attvalues>
+      </node>
+      <node id="ADD" label="ADD">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="4" />
+          <attvalue for="2" value="2" />
+          <attvalue for="3" value="-0.0" />
+          <attvalue for="4" value="2" />
+        </attvalues>
+      </node>
+      <node id="MEM1" label="MEM1">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="1" />
+          <attvalue for="2" value="2" />
+          <attvalue for="3" value="28002.0" />
+          <attvalue for="4" value="2" />
+        </attvalues>
+      </node>
+      <node id="HUF2" label="HUF2">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="14" />
+          <attvalue for="2" value="2" />
+          <attvalue for="3" value="-0.0" />
+          <attvalue for="4" value="2" />
+        </attvalues>
+      </node>
+      <node id="HUF1" label="HUF1">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="15" />
+          <attvalue for="2" value="2" />
+          <attvalue for="3" value="-0.0" />
+          <attvalue for="4" value="2" />
+        </attvalues>
+      </node>
+      <node id="MEM2" label="MEM2">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="0" />
+          <attvalue for="2" value="2" />
+          <attvalue for="3" value="28002.0" />
+          <attvalue for="4" value="2" />
+        </attvalues>
+      </node>
+      <node id="BUF" label="BUF">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="11" />
+          <attvalue for="2" value="2" />
+          <attvalue for="3" value="0.0" />
+          <attvalue for="4" value="2" />
+        </attvalues>
+      </node>
+      <node id="SUM" label="SUM">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="7" />
+          <attvalue for="2" value="2" />
+          <attvalue for="3" value="-0.0" />
+          <attvalue for="4" value="2" />
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+      <edge id="0" source="IMD" target="SUM">
+        <attvalues>
+          <attvalue for="5" value="4060" />
+          <attvalue for="6" value="4060" />
+          <attvalue for="7" value="4060" />
+        </attvalues>
+      </edge>
+      <edge id="1" source="MC" target="ADD">
+        <attvalues>
+          <attvalue for="5" value="100" />
+          <attvalue for="6" value="100" />
+          <attvalue for="7" value="100" />
+        </attvalues>
+      </edge>
+      <edge id="2" source="IQ" target="IDCT">
+        <attvalues>
+          <attvalue for="5" value="3672" />
+          <attvalue for="6" value="3672" />
+          <attvalue for="7" value="3672" />
+        </attvalues>
+      </edge>
+      <edge id="3" source="IDCT" target="ADD">
+        <attvalues>
+          <attvalue for="5" value="3672" />
+          <attvalue for="6" value="3672" />
+          <attvalue for="7" value="3672" />
+        </attvalues>
+      </edge>
+      <edge id="4" source="VLD" target="IQ">
+        <attvalues>
+          <attvalue for="5" value="250" />
+          <attvalue for="6" value="250" />
+          <attvalue for="7" value="250" />
+        </attvalues>
+      </edge>
+      <edge id="5" source="VLD" target="HUF1">
+        <attvalues>
+          <attvalue for="5" value="25" />
+          <attvalue for="6" value="25" />
+          <attvalue for="7" value="25" />
+        </attvalues>
+      </edge>
+      <edge id="6" source="VLD" target="BR1">
+        <attvalues>
+          <attvalue for="5" value="25" />
+          <attvalue for="6" value="25" />
+          <attvalue for="7" value="25" />
+        </attvalues>
+      </edge>
+      <edge id="7" source="VLD" target="MC">
+        <attvalues>
+          <attvalue for="5" value="187" />
+          <attvalue for="6" value="187" />
+          <attvalue for="7" value="187" />
+        </attvalues>
+      </edge>
+      <edge id="8" source="BR1" target="BR2">
+        <attvalues>
+          <attvalue for="5" value="2083" />
+          <attvalue for="6" value="2083" />
+          <attvalue for="7" value="2083" />
+        </attvalues>
+      </edge>
+      <edge id="9" source="BR2" target="BUF">
+        <attvalues>
+          <attvalue for="5" value="10" />
+          <attvalue for="6" value="10" />
+          <attvalue for="7" value="10" />
+        </attvalues>
+      </edge>
+      <edge id="10" source="ADD" target="MEM2">
+        <attvalues>
+          <attvalue for="5" value="380" />
+          <attvalue for="6" value="380" />
+          <attvalue for="7" value="380" />
+        </attvalues>
+      </edge>
+      <edge id="11" source="MEM1" target="MC">
+        <attvalues>
+          <attvalue for="5" value="500" />
+          <attvalue for="6" value="500" />
+          <attvalue for="7" value="500" />
+        </attvalues>
+      </edge>
+      <edge id="12" source="MEM1" target="MEM2">
+        <attvalues>
+          <attvalue for="5" value="3672" />
+          <attvalue for="6" value="3672" />
+          <attvalue for="7" value="3672" />
+        </attvalues>
+      </edge>
+      <edge id="13" source="HUF1" target="HUF2">
+        <attvalues>
+          <attvalue for="5" value="500" />
+          <attvalue for="6" value="500" />
+          <attvalue for="7" value="500" />
+        </attvalues>
+      </edge>
+      <edge id="14" source="SUM" target="BUF">
+        <attvalues>
+          <attvalue for="5" value="500" />
+          <attvalue for="6" value="500" />
+          <attvalue for="7" value="500" />
+        </attvalues>
+      </edge>
+    </edges>
+  </graph>
+</gexf>

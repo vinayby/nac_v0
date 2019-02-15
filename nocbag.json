@@ -1,0 +1,26 @@
+{
+  "connect_basedir" : "/home/vinay/git.si/nocx/CONNECT_noc_bag",
+  "fnoc_basedir" 		: "/home/vinay/git.area/fnocs/fnoc_release_v2_jun18/generated_mesh",
+  "noc_type" : {
+    "connect": {
+      "mesh": {
+        "n_9_3x3_f64_d4_v2_peek_vl": "build.t_mesh__n_9__r_3_c_3__v_2__d_4__w_64_peek_vlinks/",
+        "n_16_4x4_f64_d4_v2_peek_vl": "build.t_mesh__n_16__r_4_c_4__v_2__d_4__w_64_peek_vlinks/",
+        "n_16_4x4_f16_d8_v2_peek_vl": "build.t_mesh__n_16__r_4_c_4__v_2__d_8__w_16_peek_vlinks/",
+        "n_32_4x4_2ach_f32_d8_v2_peek_vl": "mesh_n32_4x4_2each_vc2_fw32_bd8_peek_vlinks"
+      },
+      "ring": {},
+      "pg":{
+        "n_7_v2_f64_d8_peek_vl": "build_pg7_fw64_b8_v2_peek_vlinks",
+        "n_7_v2_f64_d8_credit_vl" : "build_pg7_fw64_b8_v2_credit_vlinks",
+        "n_21_v2_f64_d8_peek_vl" : "build_pg21_fw64_b8_v2_peek_vlinks"
+      }
+    },
+
+    "fnoc": {
+      "mesh": {
+        "n_9_3x3_f64_d16": "mesh4x4_fw64_bd16/fnoc_out_default/"
+      }
+    }
+  }
+}

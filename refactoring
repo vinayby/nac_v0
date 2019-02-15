@@ -1,0 +1,9 @@
+- wrap recv's and send's to memory in wrappers
+- todo: function Integer dictTask_p_srcaddr_to_zeroidx(Tuple2#(DestAddr , SourceAddr ) nodeid_srcaddr);
+   - see if this is an overkill
+   - resource usage vs. full dictionary
+- disable type and source match checking
+   - enabled for perhaps, generating for synthesis
+- add MyDebugFlags.inc and `include everywhere
+
+

@@ -1,0 +1,74 @@
+
+Gurobi 8.0.1 (linux64, Python) logging started Wed Nov 28 16:26:13 2018
+
+Academic license - for non-commercial use only
+Changed value of parameter TimeLimit to 300.0
+   Prev: 1e+100  Min: 0.0  Max: 1e+100  Default: 1e+100
+Changed value of parameter MIPFocus to 2
+   Prev: 0  Min: 0  Max: 3  Default: 0
+Optimize a model with 129 rows, 145 columns and 2272 nonzeros
+Model has 576 quadratic objective terms
+Variable types: 1 continuous, 144 integer (136 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 4e+06]
+  Objective range  [0e+00, 0e+00]
+  QObjective range [6e+00, 5e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 4e+06]
+Presolve removed 0 rows and 9 columns
+Presolve time: 0.01s
+Presolved: 705 rows, 712 columns, 4000 nonzeros
+Variable types: 0 continuous, 712 integer (704 binary)
+Found heuristic solution: objective 54.4000000
+Found heuristic solution: objective 51.2000000
+Presolve removed 56 rows and 0 columns
+Presolved: 649 rows, 768 columns, 2992 nonzeros
+
+
+Root relaxation: objective 0.000000e+00, 116 iterations, 0.01 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.00000    0   16   51.20000    0.00000   100%     -    0s
+H    0     0                      44.8000000    0.00000   100%     -    0s
+     0     0    0.00000    0   22   44.80000    0.00000   100%     -    0s
+     0     0    0.00000    0   22   44.80000    0.00000   100%     -    0s
+H    0     0                      38.4000000    0.00000   100%     -    0s
+     0     0    0.00000    0   16   38.40000    0.00000   100%     -    0s
+     0     0    0.00000    0   16   38.40000    0.00000   100%     -    0s
+     0     2    0.00000    0   16   38.40000    0.00000   100%     -    0s
+H  156   111                      35.2000000    0.00000   100%  35.7    0s
+H  244   141                      32.0000000    0.00000   100%  30.3    0s
+
+Cutting planes:
+  Learned: 22
+  Cover: 10
+  Implied bound: 13
+  MIR: 53
+  Flow cover: 93
+  Inf proof: 1
+  Zero half: 21
+
+Explored 5499 nodes (94966 simplex iterations) in 1.62 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 6: 32 35.2 38.4 ... 54.4
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.200000000000e+01, best bound 3.200000000000e+01, gap 0.0000%
+
+Solution quality statistics for model nasm :
+  Maximum violation:
+    Bound       : 0.00000000e+00
+    Constraint  : 0.00000000e+00
+    Integrality : 0.00000000e+00
+	arc=('jug2', 'mem'),	v=64	hops=1.0	cost=64.0
+	arc=('jug1', 'mem'),	v=64	hops=1.0	cost=64.0
+	arc=('inmem2', 'jug2'),	v=64	hops=1.0	cost=64.0
+	arc=('HS', 'VS'),	v=64	hops=1.0	cost=64.0
+	arc=('inmem1', 'inmem2'),	v=64	hops=2.0	cost=128.0
+	arc=('inmem1', 'HS'),	v=128	hops=1.0	cost=128.0
+	arc=('mem', 'odisp'),	v=64	hops=1.0	cost=64.0
+	arc=('VS', 'jug1'),	v=64	hops=1.0	cost=64.0
+Runtime = 1.62006402016	objVal = 32.0	cost_A = 640.0	E_comm = 32.0	T = 0.0

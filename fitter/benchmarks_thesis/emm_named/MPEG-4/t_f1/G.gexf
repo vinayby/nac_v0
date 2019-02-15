@@ -1,0 +1,253 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf version="1.2" xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/XMLSchema-instance">
+  <graph defaultedgetype="directed" mode="static" name="">
+    <attributes class="edge" mode="static">
+      <attribute id="4" title="volume" type="double" />
+      <attribute id="5" title="tstart" type="double" />
+      <attribute id="6" title="path" type="string" />
+      <attribute id="7" title="label" type="double" />
+      <attribute id="8" title="NumFlits" type="double" />
+      <attribute id="9" title="tend" type="double" />
+    </attributes>
+    <attributes class="node" mode="static">
+      <attribute id="0" title="energy" type="integer" />
+      <attribute id="1" title="HostRouter" type="integer" />
+      <attribute id="2" title="tstart" type="double" />
+      <attribute id="3" title="execution_duration" type="integer" />
+    </attributes>
+    <meta>
+      <creator>NetworkX 2.2</creator>
+      <lastmodified>28/10/2018</lastmodified>
+    </meta>
+    <nodes>
+      <node id="sdram" label="sdram">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="6" />
+          <attvalue for="2" value="-0.0" />
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </node>
+      <node id="adsp" label="adsp">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="14" />
+          <attvalue for="2" value="-0.0" />
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </node>
+      <node id="idct" label="idct">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="8" />
+          <attvalue for="2" value="-0.0" />
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </node>
+      <node id="upsamp" label="upsamp">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="10" />
+          <attvalue for="2" value="-0.0" />
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </node>
+      <node id="medcpu" label="medcpu">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="4" />
+          <attvalue for="2" value="-0.0" />
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </node>
+      <node id="risc" label="risc">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="13" />
+          <attvalue for="2" value="-0.0" />
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </node>
+      <node id="sram2" label="sram2">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="9" />
+          <attvalue for="2" value="-0.0" />
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </node>
+      <node id="rast" label="rast">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="2" />
+          <attvalue for="2" value="-0.0" />
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </node>
+      <node id="sram1" label="sram1">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="1" />
+          <attvalue for="2" value="-0.0" />
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </node>
+      <node id="au" label="au">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="11" />
+          <attvalue for="2" value="-0.0" />
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </node>
+      <node id="vu" label="vu">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="7" />
+          <attvalue for="2" value="-0.0" />
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </node>
+      <node id="bab" label="bab">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="5" />
+          <attvalue for="2" value="-0.0" />
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+      <edge id="0" source="sdram" target="upsamp">
+        <attvalues>
+          <attvalue for="4" value="910.0" />
+          <attvalue for="5" value="2.0" />
+          <attvalue for="6" value="{(6, 10): {'tstart': 2.0, 'tend': 912.0}}" />
+          <attvalue for="7" value="910.0" />
+          <attvalue for="8" value="910.0" />
+          <attvalue for="9" value="912.0" />
+        </attvalues>
+      </edge>
+      <edge id="1" source="sdram" target="bab">
+        <attvalues>
+          <attvalue for="4" value="32.0" />
+          <attvalue for="5" value="2.0" />
+          <attvalue for="6" value="{(6, 5): {'tstart': 2.0, 'tend': 34.0}}" />
+          <attvalue for="7" value="32.0" />
+          <attvalue for="8" value="32.0" />
+          <attvalue for="9" value="34.0" />
+        </attvalues>
+      </edge>
+      <edge id="2" source="sdram" target="adsp">
+        <attvalues>
+          <attvalue for="4" value="1.0" />
+          <attvalue for="5" value="2.0" />
+          <attvalue for="6" value="{(6, 10): {'tstart': 2.0, 'tend': 3.0}, (10, 14): {'tstart': 3.0, 'tend': 4.0}}" />
+          <attvalue for="7" value="1.0" />
+          <attvalue for="8" value="1.0" />
+          <attvalue for="9" value="4.0" />
+        </attvalues>
+      </edge>
+      <edge id="3" source="medcpu" target="sdram">
+        <attvalues>
+          <attvalue for="4" value="60.0" />
+          <attvalue for="5" value="2.0" />
+          <attvalue for="6" value="{(4, 5): {'tstart': 2.0, 'tend': 62.0}, (5, 6): {'tstart': 62.0, 'tend': 122.0}}" />
+          <attvalue for="7" value="60.0" />
+          <attvalue for="8" value="60.0" />
+          <attvalue for="9" value="122.0" />
+        </attvalues>
+      </edge>
+      <edge id="4" source="medcpu" target="sram1">
+        <attvalues>
+          <attvalue for="4" value="40.0" />
+          <attvalue for="5" value="2.0" />
+          <attvalue for="6" value="{(4, 5): {'tstart': 2.0, 'tend': 42.0}, (5, 1): {'tstart': 42.0, 'tend': 82.0}}" />
+          <attvalue for="7" value="40.0" />
+          <attvalue for="8" value="40.0" />
+          <attvalue for="9" value="82.0" />
+        </attvalues>
+      </edge>
+      <edge id="5" source="sram2" target="upsamp">
+        <attvalues>
+          <attvalue for="4" value="670.0" />
+          <attvalue for="5" value="2.0" />
+          <attvalue for="6" value="{(9, 10): {'tstart': 2.0, 'tend': 672.0}}" />
+          <attvalue for="7" value="670.0" />
+          <attvalue for="8" value="670.0" />
+          <attvalue for="9" value="672.0" />
+        </attvalues>
+      </edge>
+      <edge id="6" source="sram2" target="idct">
+        <attvalues>
+          <attvalue for="4" value="250.0" />
+          <attvalue for="5" value="2.0" />
+          <attvalue for="6" value="{(9, 8): {'tstart': 2.0, 'tend': 252.0}}" />
+          <attvalue for="7" value="250.0" />
+          <attvalue for="8" value="250.0" />
+          <attvalue for="9" value="252.0" />
+        </attvalues>
+      </edge>
+      <edge id="7" source="sram2" target="bab">
+        <attvalues>
+          <attvalue for="4" value="173.0" />
+          <attvalue for="5" value="2.0" />
+          <attvalue for="6" value="{(9, 5): {'tstart': 2.0, 'tend': 175.0}}" />
+          <attvalue for="7" value="173.0" />
+          <attvalue for="8" value="173.0" />
+          <attvalue for="9" value="175.0" />
+        </attvalues>
+      </edge>
+      <edge id="8" source="sram2" target="risc">
+        <attvalues>
+          <attvalue for="4" value="500.0" />
+          <attvalue for="5" value="2.0" />
+          <attvalue for="6" value="{(9, 13): {'tstart': 2.0, 'tend': 502.0}}" />
+          <attvalue for="7" value="500.0" />
+          <attvalue for="8" value="500.0" />
+          <attvalue for="9" value="502.0" />
+        </attvalues>
+      </edge>
+      <edge id="9" source="rast" target="sdram">
+        <attvalues>
+          <attvalue for="4" value="600.0" />
+          <attvalue for="5" value="2.0" />
+          <attvalue for="6" value="{(2, 6): {'tstart': 2.0, 'tend': 602.0}}" />
+          <attvalue for="7" value="600.0" />
+          <attvalue for="8" value="600.0" />
+          <attvalue for="9" value="602.0" />
+        </attvalues>
+      </edge>
+      <edge id="10" source="rast" target="sram1">
+        <attvalues>
+          <attvalue for="4" value="40.0" />
+          <attvalue for="5" value="2.0" />
+          <attvalue for="6" value="{(2, 1): {'tstart': 2.0, 'tend': 42.0}}" />
+          <attvalue for="7" value="40.0" />
+          <attvalue for="8" value="40.0" />
+          <attvalue for="9" value="42.0" />
+        </attvalues>
+      </edge>
+      <edge id="11" source="au" target="sdram">
+        <attvalues>
+          <attvalue for="4" value="1.0" />
+          <attvalue for="5" value="2.0" />
+          <attvalue for="6" value="{(11, 10): {'tstart': 2.0, 'tend': 3.0}, (10, 6): {'tstart': 3.0, 'tend': 4.0}}" />
+          <attvalue for="7" value="1.0" />
+          <attvalue for="8" value="1.0" />
+          <attvalue for="9" value="4.0" />
+        </attvalues>
+      </edge>
+      <edge id="12" source="vu" target="sdram">
+        <attvalues>
+          <attvalue for="4" value="190.0" />
+          <attvalue for="5" value="2.0" />
+          <attvalue for="6" value="{(7, 6): {'tstart': 2.0, 'tend': 192.0}}" />
+          <attvalue for="7" value="190.0" />
+          <attvalue for="8" value="190.0" />
+          <attvalue for="9" value="192.0" />
+        </attvalues>
+      </edge>
+    </edges>
+  </graph>
+</gexf>

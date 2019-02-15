@@ -1,0 +1,27 @@
+strict digraph "" {
+sdram;
+adsp;
+idct;
+upsamp;
+medcpu;
+risc;
+sram2;
+rast;
+sram1;
+au;
+vu;
+bab;
+sdram -> upsamp  [volume="910.0"];
+sdram -> bab  [volume="32.0"];
+sdram -> adsp  [volume="1.0"];
+medcpu -> sdram  [volume="60.0"];
+medcpu -> sram1  [volume="40.0"];
+sram2 -> upsamp  [volume="670.0"];
+sram2 -> idct  [volume="250.0"];
+sram2 -> bab  [volume="173.0"];
+sram2 -> risc  [volume="500.0"];
+rast -> sdram  [volume="600.0"];
+rast -> sram1  [volume="40.0"];
+au -> sdram  [volume="1.0"];
+vu -> sdram  [volume="190.0"];
+}

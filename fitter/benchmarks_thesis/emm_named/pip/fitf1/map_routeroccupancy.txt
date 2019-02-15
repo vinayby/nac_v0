@@ -1,0 +1,11 @@
+[
+    "mem", 
+    "jug1", 
+    "VS", 
+    "odisp", 
+    "-", 
+    "HS", 
+    "jug2", 
+    "inmem2", 
+    "inmem1"
+]

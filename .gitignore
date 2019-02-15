@@ -1,0 +1,28 @@
+.build_nafitter/
+.dist_nafitter/
+fitter/randomdags/daggen/daggen 
+fitter/randomdags/daggen/daggen.o
+fitter/randomdags/daggen/daggen_commons.o
+a.out
+_temp
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Generic
+.*.swp
+# Temporary
+tests
+*_fnoc
+build/
+dist/ 
+.build_nac/
+.dist_nac/
+fitter/benchmarks_/
+fitter/benchmarks/
+fitter/na_unism.py
+

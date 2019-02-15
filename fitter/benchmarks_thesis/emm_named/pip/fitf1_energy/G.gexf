@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf version="1.2" xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/XMLSchema-instance">
+  <graph defaultedgetype="directed" mode="static" name="">
+    <attributes class="edge" mode="static">
+      <attribute id="5" title="volume" type="string" />
+      <attribute id="6" title="NumFlits" type="integer" />
+      <attribute id="7" title="label" type="string" />
+    </attributes>
+    <attributes class="node" mode="static">
+      <attribute id="0" title="energy" type="integer" />
+      <attribute id="1" title="HostRouter" type="integer" />
+      <attribute id="2" title="d" type="integer" />
+      <attribute id="3" title="tstart" type="double" />
+      <attribute id="4" title="execution_duration" type="integer" />
+    </attributes>
+    <meta>
+      <creator>NetworkX 2.2</creator>
+      <lastmodified>28/11/2018</lastmodified>
+    </meta>
+    <nodes>
+      <node id="jug2" label="jug2">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="3" />
+          <attvalue for="2" value="2" />
+          <attvalue for="3" value="-0.0" />
+          <attvalue for="4" value="2" />
+        </attvalues>
+      </node>
+      <node id="jug1" label="jug1">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="5" />
+          <attvalue for="2" value="2" />
+          <attvalue for="3" value="-0.0" />
+          <attvalue for="4" value="2" />
+        </attvalues>
+      </node>
+      <node id="inmem2" label="inmem2">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="6" />
+          <attvalue for="2" value="2" />
+          <attvalue for="3" value="-0.0" />
+          <attvalue for="4" value="2" />
+        </attvalues>
+      </node>
+      <node id="HS" label="HS">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="1" />
+          <attvalue for="2" value="2" />
+          <attvalue for="3" value="-0.0" />
+          <attvalue for="4" value="2" />
+        </attvalues>
+      </node>
+      <node id="inmem1" label="inmem1">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="0" />
+          <attvalue for="2" value="2" />
+          <attvalue for="3" value="-0.0" />
+          <attvalue for="4" value="2" />
+        </attvalues>
+      </node>
+      <node id="mem" label="mem">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="4" />
+          <attvalue for="2" value="2" />
+          <attvalue for="3" value="-0.0" />
+          <attvalue for="4" value="2" />
+        </attvalues>
+      </node>
+      <node id="VS" label="VS">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="2" />
+          <attvalue for="2" value="2" />
+          <attvalue for="3" value="-0.0" />
+          <attvalue for="4" value="2" />
+        </attvalues>
+      </node>
+      <node id="odisp" label="odisp">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="7" />
+          <attvalue for="2" value="2" />
+          <attvalue for="3" value="-0.0" />
+          <attvalue for="4" value="2" />
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+      <edge id="0" source="jug2" target="mem">
+        <attvalues>
+          <attvalue for="5" value="64" />
+          <attvalue for="6" value="64" />
+          <attvalue for="7" value="64" />
+        </attvalues>
+      </edge>
+      <edge id="1" source="jug1" target="mem">
+        <attvalues>
+          <attvalue for="5" value="64" />
+          <attvalue for="6" value="64" />
+          <attvalue for="7" value="64" />
+        </attvalues>
+      </edge>
+      <edge id="2" source="inmem2" target="jug2">
+        <attvalues>
+          <attvalue for="5" value="64" />
+          <attvalue for="6" value="64" />
+          <attvalue for="7" value="64" />
+        </attvalues>
+      </edge>
+      <edge id="3" source="HS" target="VS">
+        <attvalues>
+          <attvalue for="5" value="64" />
+          <attvalue for="6" value="64" />
+          <attvalue for="7" value="64" />
+        </attvalues>
+      </edge>
+      <edge id="4" source="inmem1" target="inmem2">
+        <attvalues>
+          <attvalue for="5" value="64" />
+          <attvalue for="6" value="64" />
+          <attvalue for="7" value="64" />
+        </attvalues>
+      </edge>
+      <edge id="5" source="inmem1" target="HS">
+        <attvalues>
+          <attvalue for="5" value="128" />
+          <attvalue for="6" value="128" />
+          <attvalue for="7" value="128" />
+        </attvalues>
+      </edge>
+      <edge id="6" source="mem" target="odisp">
+        <attvalues>
+          <attvalue for="5" value="64" />
+          <attvalue for="6" value="64" />
+          <attvalue for="7" value="64" />
+        </attvalues>
+      </edge>
+      <edge id="7" source="VS" target="jug1">
+        <attvalues>
+          <attvalue for="5" value="64" />
+          <attvalue for="6" value="64" />
+          <attvalue for="7" value="64" />
+        </attvalues>
+      </edge>
+    </edges>
+  </graph>
+</gexf>

@@ -1,0 +1,90 @@
+strict digraph  {
+	"HUF1
+2"	 [d=2];
+	"HUF2
+2"	 [d=2];
+	"HUF1
+2" -> "HUF2
+2"	 [label=500,
+		volume=500];
+	"MC
+2"	 [d=2];
+	"ADD
+2"	 [d=2];
+	"MC
+2" -> "ADD
+2"	 [label=100,
+		volume=100];
+	"IQ
+2"	 [d=2];
+	"IDCT
+2"	 [d=2];
+	"IQ
+2" -> "IDCT
+2"	 [label=3672,
+		volume=3672];
+	"BR2
+2"	 [d=2];
+	"BUF
+2"	 [d=2];
+	"BR2
+2" -> "BUF
+2"	 [label=10,
+		volume=10];
+	"MEM2
+2"	 [d=2];
+	"BR1
+2"	 [d=2];
+	"BR1
+2" -> "BR2
+2"	 [label=2083,
+		volume=2083];
+	"IDCT
+2" -> "ADD
+2"	 [label=3672,
+		volume=3672];
+	"VLD
+2"	 [d=2];
+	"VLD
+2" -> "HUF1
+2"	 [label=25,
+		volume=25];
+	"VLD
+2" -> "MC
+2"	 [label=187,
+		volume=187];
+	"VLD
+2" -> "IQ
+2"	 [label=250,
+		volume=250];
+	"VLD
+2" -> "BR1
+2"	 [label=25,
+		volume=25];
+	"SUM
+2"	 [d=2];
+	"SUM
+2" -> "BUF
+2"	 [label=500,
+		volume=500];
+	"MEM1
+2"	 [d=2];
+	"MEM1
+2" -> "MC
+2"	 [label=500,
+		volume=500];
+	"MEM1
+2" -> "MEM2
+2"	 [label=3672,
+		volume=3672];
+	"ADD
+2" -> "MEM2
+2"	 [label=380,
+		volume=380];
+	"IMD
+2"	 [d=2];
+	"IMD
+2" -> "SUM
+2"	 [label=4060,
+		volume=4060];
+}

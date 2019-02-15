@@ -1,0 +1,8 @@
+{
+    "nocpath": "/home/vinay/git.si/nocx/CONNECT_noc_bag/build.t_mesh__n_16__r_4_c_4__v_2__d_4__w_64_peek_vlinks/", 
+    "flitwidth_override": 1, 
+    "drop_precedence_constraints": false, 
+    "objective": "both", 
+    "num_tasks_per_router_bound": 1, 
+    "gurobi_timelimit": 30
+}

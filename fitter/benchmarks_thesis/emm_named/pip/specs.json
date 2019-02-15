@@ -1,0 +1,64 @@
+{
+    "task_kernels": {
+        "jug2": [
+            {
+                "name": "f1", 
+                "energy": 2, 
+                "duration": 2
+            }
+        ], 
+        "jug1": [
+            {
+                "name": "f1", 
+                "energy": 2, 
+                "duration": 2
+            }
+        ], 
+        "inmem2": [
+            {
+                "name": "f1", 
+                "energy": 2, 
+                "duration": 2
+            }
+        ], 
+        "HS": [
+            {
+                "name": "f1", 
+                "energy": 2, 
+                "duration": 2
+            }
+        ], 
+        "inmem1": [
+            {
+                "name": "f1", 
+                "energy": 2, 
+                "duration": 2
+            }
+        ], 
+        "mem": [
+            {
+                "name": "f1", 
+                "energy": 2, 
+                "duration": 2
+            }
+        ], 
+        "VS": [
+            {
+                "name": "f1", 
+                "energy": 2, 
+                "duration": 2
+            }
+        ], 
+        "odisp": [
+            {
+                "name": "f1", 
+                "energy": 2, 
+                "duration": 2
+            }
+        ]
+    }, 
+    "cycles_per_pkt": 1.5, 
+    "energy_cost_per_bit": 0.05, 
+    "initial_map": {}, 
+    "hop_latency": 1
+}

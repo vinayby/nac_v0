@@ -1,0 +1,31 @@
+strict digraph "" {
+IMD;
+MC;
+IQ;
+IDCT;
+VLD;
+BR1;
+BR2;
+ADD;
+MEM1;
+HUF2;
+HUF1;
+MEM2;
+BUF;
+SUM;
+IMD -> SUM  [volume="4060.0"];
+MC -> ADD  [volume="100.0"];
+IQ -> IDCT  [volume="3672.0"];
+IDCT -> ADD  [volume="3672.0"];
+VLD -> IQ  [volume="250.0"];
+VLD -> HUF1  [volume="25.0"];
+VLD -> BR1  [volume="25.0"];
+VLD -> MC  [volume="187.0"];
+BR1 -> BR2  [volume="2083.0"];
+BR2 -> BUF  [volume="10.0"];
+ADD -> MEM2  [volume="380.0"];
+MEM1 -> MC  [volume="500.0"];
+MEM1 -> MEM2  [volume="3672.0"];
+HUF1 -> HUF2  [volume="500.0"];
+SUM -> BUF  [volume="500.0"];
+}

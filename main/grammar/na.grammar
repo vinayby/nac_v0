@@ -1,0 +1,305 @@
+//-----------------------------------------------------------------------------
+@start            :  translation_unit ;
+translation_unit  : (task_definition | task_instance | task_group | declaration)* ;
+//-----------------------------------------------------------------------------
+
+task_definition   : taskdecl taskdef ;
+@taskdecl         : (task_qualifiers)? taskname LPAR taskid? RPAR;
+@task_qualifiers  : (task_qualifier | task_qualifier COMMA task_qualifier)*; // TODO: COMMA isn't correct
+task_qualifier    : OFFCHIP | SCEMI | CAPI_AFU | VIRTUAL ;  
+taskname          : IDENTIFIER;
+taskid            : NUMBER; 
+@taskdef          : compound_statament ;
+
+task_instance     : (task_qualifiers)? TASK (taskname|taskname LSQUARE taskcount RSQUARE ) taskdefname LPAR parameqval_list? RPAR SEMICOLON; 
+taskcount         : CONST_EXPR;
+task_group        : TASKGROUP taskgroupname taskname_csl SEMICOLON;
+taskgroupname     : IDENTIFIER;
+taskname_csl      : taskname (COMMA taskname)*;
+parameqval_list   : parameqval  (COMMA parameqval)*;
+parameqval        : paramname '=' valname;
+
+taskdefname       : IDENTIFIER;
+paramname         : IDENTIFIER;
+valname           : IDENTIFIER | string;
+
+
+@compound_statament : LBRACE RBRACE 
+//                    | LBRACE statement_list RBRACE 
+//                    | LBRACE declaration_list RBRACE
+//                    | LBRACE declaration_list statement_list RBRACE
+                    | LBRACE decl_stmt_list RBRACE
+                    ;
+@statement_list     : (statement)* ; 
+@decl_stmt_list     : (statement|declaration|parameter_declaration|pragma)*;
+@statement          : compound_statament 
+                    | coordination_statement  
+                    | computation_statement
+                    | control_statement
+                    | misc_statement
+                    ;
+@declaration_list   : (declaration|parameter_declaration)* ;          
+@coordination_statement : coord_cll_stmt | coord_p2p_stmt ;                    
+@control_statement      : control_stmt ;
+@computation_statement  : kernel_call ;
+@control_statement      : control_stmt ;
+@misc_statement         : misc_debug_stmt | mcopy | 'null' ;
+
+@control_stmt    : loop_block | parallel_block | group_block ;
+@coord_p2p_stmt  : send | recv ;
+@coord_cll_stmt  : scatter | gather | broadcast | barrier ;
+@misc_debug_stmt : displaystmt | delaystmt | halt ;
+
+parallel_block  : PARALLEL compound_statament ; 
+group_block     : GROUP compound_statament ; 
+loop_block      : ( LOOP | LOOP LPAR (loopcount | loopindex) RPAR )
+                   compound_statament
+                  ;
+loopindex         : (loopidx COLON loop_start_index COMMA loop_max_index (COMMA loop_incr)?) ;
+loop_start_index  : size ;
+loop_max_index    : size ;
+loop_incr         : size ;
+loopidx           : IDENTIFIER ;
+
+loopcount         :   size;
+kernel_call       :   kernel_name LPAR msg_object_csl RPAR SEMICOLON;
+kernel_name       :   IDENTIFIER;
+@msg_off_len      :   msg_object (COMMA offset (COMMA length)?)?;
+offset            :   CONST_EXPR;
+length            :   CONST_EXPR;
+@coord_options    :   (COLON coord_option)*;
+coord_option      :   IDENTIFIER;
+send              :   SEND      (coord_options)? msg_off_len TO address_csl (ON vchannel)? SEMICOLON;
+scatter           :   SCATTER   (coord_options)? msg_off_len TO address_csl (ON vchannel)? SEMICOLON;
+broadcast         :   BROADCAST (coord_options)? msg_off_len                               SEMICOLON; 
+gather            :   GATHER    (coord_options)? msg_off_len FROM address_csl              SEMICOLON;
+recv              :   RECV      (coord_options)? msg_off_len FROM address_csl              SEMICOLON;
+
+pragma            :   PRAGMA pragma_options type_specifier_csl (FROM|TO) address_csl ;
+@pragma_options   :   (COLON pragma_option)*;
+pragma_option     :   IDENTIFIER;
+type_specifier_csl:  type_specifier (COMMA type_specifier)*;
+
+vchannel          :   CONST_EXPR;
+@msg_object_csl   :   msg_object (COMMA msg_object)*; 
+msg_object        :   instance_name | parameter;
+parameter         :   instance_name EQUALS passed_value;
+passed_value      :   NUMBER;
+msg_object_name   :   IDENTIFIER;
+@address_csl      :   address (COMMA address)*;
+address           :   taskid | taskname (LSQUARE loopidx RSQUARE)? ;
+
+barrier           :   BARRIER address_csl SEMICOLON;
+
+displaystmt       :   DISPLAY msg_off_len SEMICOLON;
+mcopy             :   MCOPY msg_off_len TO 
+                            msg_off_len SEMICOLON;
+delaystmt         :   DELAY delay_in_ccs SEMICOLON;
+halt              :   HALT (signum)? SEMICOLON;
+signum            :   CONST_EXPR;
+delay_in_ccs      :   CONST_EXPR;
+
+
+declaration       :   declaration_specifiers SEMICOLON
+                    | declaration_specifiers init_declarator_list SEMICOLON
+                    ;
+
+parameter_declaration: PARAMETER paramtype init_declarator_list SEMICOLON;
+
+paramtype         : TASK | STRING |DATAPARAM;
+
+//@init_declarator_list: init_declarator |  init_declarator_list COMMA init_declarator ; //TODO rf
+@init_declarator_list: init_declarator (COMMA init_declarator)*;
+
+
+init_declarator   :   declarator
+                    | declarator '=' initializer
+                    ;
+
+initializer         : NUMBER|FROMFILE LPAR (filename|paramname) RPAR|taskname_val;
+filename            : string;
+paramname           : IDENTIFIER;
+taskname_val        : IDENTIFIER;
+            
+@declaration_specifiers :
+                      storage_class_specifier
+                    | storage_class_specifier declaration_specifiers
+                    | type_specifier
+                    | type_specifier declaration_specifiers
+                    | type_qualifier
+                    | type_qualifier declaration_specifiers
+                    ;
+
+storage_class_specifier :  SCS_REG
+                    | SCS_FIFO
+                    | SCS_BRAM
+                    | SCS_RAM
+                    | SCS_MBUS
+                    | SCS_PPFIFO
+                    ;
+
+type_qualifier    :   VIVADOHLS_IF | VHLS_IF
+                    | PARAMETER
+                    ;
+
+type_specifier    :   UINT8_T | UINT16_T | UINT32_T | UINT64_T | INT
+                    | FLOAT | DOUBLE | INT8_T | INT16_T 
+                    | struct_or_union_specifier
+                    | bit_equivalent_type
+                    | ufixed_type
+                    | hw_kernel // SPECIAL: processing element marker, type specifier?
+                    ;
+
+ufixed_type       : UFIXED '<' size COMMA size '>' ;
+
+hw_kernel           : PE|KERNEL;
+struct_or_union_name: IDENTIFIER;
+bit_equivalent_type : size COLON;
+name                : IDENTIFIER;
+//size                : NUM_EXPR | CONST_EXPR;
+size                : CONST_EXPR;
+string              : '".*?(?<!\\)(\\\\)*?"' ;
+
+struct_or_union     :  STRUCT | UNION;
+
+struct_or_union_specifier   :   struct_or_union struct_or_union_name LBRACE struct_declaration_list RBRACE
+                              | struct_or_union LBRACE struct_declaration_list RBRACE
+                              | struct_or_union struct_or_union_name 
+                              ;
+
+
+@struct_declaration_list    : (struct_declaration)* ;
+struct_declaration          : specifier_qualifier_list struct_declarator_list SEMICOLON;
+@specifier_qualifier_list   :   type_specifier specifier_qualifier_list
+                              | type_specifier
+                              | type_qualifier specifier_qualifier_list
+                              | type_qualifier
+                              ;
+
+struct_declarator_list      : struct_declarator | ((struct_declarator COMMA)+ struct_declarator);
+struct_declarator           : declarator;
+
+instance_name               : IDENTIFIER;
+
+@declarator                 : direct_declarator;
+
+@direct_declarator          :   instance_name
+                              | array_declarator
+                              | LPAR declarator RPAR
+                              | direct_declarator LPAR msg_object_type_list RPAR
+                              ;
+@array_declarator           : direct_declarator LSQUARE array_size RSQUARE;                              
+array_size                  : size;
+//msg_object_type_list        :     msg_object_declaration | ((msg_object_declaration COMMA)+ msg_object_declaration) ; 
+msg_object_type_list        : msg_object_declaration (COMMA msg_object_declaration)*;
+
+msg_object_declaration      :     declaration_specifiers declarator
+                              |   declaration_specifiers
+                              ;
+
+//IDENTIFIER_EXPR: '\[[^\[\]\n;]+]'
+//{
+//      start: '\[' name ']';
+//          name: '[^\[\]\n;]+';
+//              WS: '[\t \f]+' (%ignore);
+//};
+// testing nested grammar
+//IDENTIFIER_EXPR:  '[.]*' 
+//{
+//  start: add;
+//  ?add: (add add_symbol)? mul;
+//  ?mul: (mul mul_symbol)? atom;
+//  @atom: neg | number|identifier| '\(' add '\)';
+//  neg: '-' atom;
+//  number: '[\d.]+';
+//  mul_symbol: '\*' | '/';
+//  add_symbol: '\+' | '-';
+//  identifier: '[a-zA-Z]+';
+//  WHITESPACE: '[ \t]+' (%ignore);
+//};
+
+CONST_EXPR: '[\*\+/\d\w]+'; 
+NUMBER: '\d+';
+LPAR: '\(';
+RPAR: '\)';
+COMMA: ',';
+SEMICOLON: ';';
+COLON: ':';
+LBRACE: '{';
+RBRACE: '}';
+LSQUARE: '\[';
+RSQUARE: ']';
+EQUALS: '=';
+//LPAR_STAR: '\(\*';
+//STAR_RPAR: '\*\)';
+//-------------------------------------THINGS IGNORED
+COMMENT: '[/\#][/][^\n]*'(%ignore);
+//SINGLE_LINE_COMMENT: '//.*' (%ignore);
+MULTILINE_COMMENT: '/\*(.|\n)*?\*/' (%ignore) (%newline);
+WHITESPACE: '[ \t\f]+' (%ignore);
+NEWLINE: '\r?\n' (%ignore) (%newline);
+CPP_DIRECTIVE: '\#.*' (%ignore);
+//---------------------------------------------------
+
+IDENTIFIER:  '[&@a-zA-Z_][0-9a-zA-Z_]*' (%unless
+// built-in types
+UINT8_T:  'uint8_t';
+UINT16_T: 'uint16_t';
+UINT32_T: 'uint32_t';
+UINT64_T: 'uint64_t';
+UFIXED: 'ufixed';
+FLOAT: 'float';
+INT: 'int';
+DOUBLE: 'double';
+INT16_T: 'int16_t';
+INT8_T: 'int8_t';
+
+// special keywords
+LOOP: 'loop';
+PARALLEL: 'parallel';
+GROUP: 'group';
+
+TASKGROUP: 'taskgroup';
+TASK: 'task';
+DATAPARAM: 'data';
+FROM: 'from';
+TO: 'to';
+SEND: 'send';
+SCATTER: 'scatter';
+BROADCAST: 'broadcast';
+GATHER: 'gather';
+BARRIER: 'barrier';
+RECV: 'recv';
+DISPLAY : 'display';
+DELAY : 'delay';
+MCOPY : 'mcopy';
+HALT : 'halt';
+PRAGMA : '@pragma';
+
+STRUCT : 'struct';
+UNION : 'union';
+
+OFFCHIP : 'off_chip';
+SCEMI : 'scemi';
+CAPI_AFU : 'capi_afu';
+VIRTUAL : 'virtual';
+
+STRING : 'string';
+SCS_REG  : '__reg__';
+SCS_FIFO  : '__fifo__';
+SCS_BRAM  : '__bram__';
+SCS_RAM  : '__ram__';
+SCS_MBUS  : '__mbus__';
+SCS_PPFIFO  : '__ppfifo__';
+
+PARAMETER  : 'parameter';
+VIVADOHLS_IF : '__vivadohls__';
+VHLS_IF : '__vhls__';
+ON: 'on';
+ANY: 'any';
+PE: 'pe';
+KERNEL: 'kernel';
+FROMFILE: 'fromfile';
+);
+
+

@@ -1,0 +1,269 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf version="1.1" xmlns="http://www.gexf.net/1.1draft" xmlns:viz="http://www.gexf.net/1.1draft/viz" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/XMLSchema-instance">
+  <graph defaultedgetype="directed" mode="static">
+    <attributes class="edge" mode="static">
+      <attribute id="4" title="volume" type="double" />
+      <attribute id="5" title="path" type="string" />
+      <attribute id="6" title="NumFlits" type="double" />
+      <attribute id="7" title="tstart" type="double" />
+      <attribute id="8" title="tend" type="double" />
+    </attributes>
+    <attributes class="node" mode="static">
+      <attribute id="0" title="energy" type="integer" />
+      <attribute id="1" title="HostRouter" type="integer" />
+      <attribute id="2" title="tstart" type="double" />
+      <attribute id="3" title="execution_duration" type="integer" />
+    </attributes>
+    <nodes>
+      <node id="IMD" label="IMD">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="14" />
+          <attvalue for="2" value="-0.0" />
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </node>
+      <node id="MC" label="MC">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="2" />
+          <attvalue for="2" value="6298.0" />
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </node>
+      <node id="IQ" label="IQ">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="9" />
+          <attvalue for="2" value="252.0" />
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </node>
+      <node id="IDCT" label="IDCT">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="10" />
+          <attvalue for="2" value="3926.0" />
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </node>
+      <node id="VLD" label="VLD">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="5" />
+          <attvalue for="2" value="-0.0" />
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </node>
+      <node id="BR1" label="BR1">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="4" />
+          <attvalue for="2" value="202.0" />
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </node>
+      <node id="BR2" label="BR2">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="8" />
+          <attvalue for="2" value="6453.0" />
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </node>
+      <node id="ADD" label="ADD">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="6" />
+          <attvalue for="2" value="7600.0" />
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </node>
+      <node id="MEM1" label="MEM1">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="3" />
+          <attvalue for="2" value="-0.0" />
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </node>
+      <node id="HUF2" label="HUF2">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="0" />
+          <attvalue for="2" value="7454.0" />
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </node>
+      <node id="HUF1" label="HUF1">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="1" />
+          <attvalue for="2" value="452.0" />
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </node>
+      <node id="MEM2" label="MEM2">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="7" />
+          <attvalue for="2" value="7982.0" />
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </node>
+      <node id="BUF" label="BUF">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="12" />
+          <attvalue for="2" value="7982.0" />
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </node>
+      <node id="SUM" label="SUM">
+        <attvalues>
+          <attvalue for="0" value="2" />
+          <attvalue for="1" value="13" />
+          <attvalue for="2" value="4062.0" />
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+      <edge id="0" source="IMD" target="SUM">
+        <attvalues>
+          <attvalue for="4" value="4060.0" />
+          <attvalue for="5" value="{(14, 13): {'tstart': 2.0, 'tend': 4062.0}}" />
+          <attvalue for="6" value="4060.0" />
+          <attvalue for="7" value="2.0" />
+          <attvalue for="8" value="4062.0" />
+        </attvalues>
+      </edge>
+      <edge id="1" source="MC" target="ADD">
+        <attvalues>
+          <attvalue for="4" value="100.0" />
+          <attvalue for="5" value="{(2, 6): {'tstart': 6300.0, 'tend': 6400.0}}" />
+          <attvalue for="6" value="100.0" />
+          <attvalue for="7" value="6300.0" />
+          <attvalue for="8" value="6400.0" />
+        </attvalues>
+      </edge>
+      <edge id="2" source="IQ" target="IDCT">
+        <attvalues>
+          <attvalue for="4" value="3672.0" />
+          <attvalue for="5" value="{(9, 10): {'tstart': 254.0, 'tend': 3926.0}}" />
+          <attvalue for="6" value="3672.0" />
+          <attvalue for="7" value="254.0" />
+          <attvalue for="8" value="3926.0" />
+        </attvalues>
+      </edge>
+      <edge id="3" source="IDCT" target="ADD">
+        <attvalues>
+          <attvalue for="4" value="3672.0" />
+          <attvalue for="5" value="{(10, 6): {'tstart': 3928.0, 'tend': 7600.0}}" />
+          <attvalue for="6" value="3672.0" />
+          <attvalue for="7" value="3928.0" />
+          <attvalue for="8" value="7600.0" />
+        </attvalues>
+      </edge>
+      <edge id="4" source="VLD" target="IQ">
+        <attvalues>
+          <attvalue for="4" value="250.0" />
+          <attvalue for="5" value="{(5, 9): {'tstart': 2.0, 'tend': 252.0}}" />
+          <attvalue for="6" value="250.0" />
+          <attvalue for="7" value="2.0" />
+          <attvalue for="8" value="252.0" />
+        </attvalues>
+      </edge>
+      <edge id="5" source="VLD" target="HUF1">
+        <attvalues>
+          <attvalue for="4" value="25.0" />
+          <attvalue for="5" value="{(5, 1): {'tstart': 2.0, 'tend': 27.0}}" />
+          <attvalue for="6" value="25.0" />
+          <attvalue for="7" value="2.0" />
+          <attvalue for="8" value="27.0" />
+        </attvalues>
+      </edge>
+      <edge id="6" source="VLD" target="BR1">
+        <attvalues>
+          <attvalue for="4" value="25.0" />
+          <attvalue for="5" value="{(5, 4): {'tstart': 2.0, 'tend': 27.0}}" />
+          <attvalue for="6" value="25.0" />
+          <attvalue for="7" value="2.0" />
+          <attvalue for="8" value="27.0" />
+        </attvalues>
+      </edge>
+      <edge id="7" source="VLD" target="MC">
+        <attvalues>
+          <attvalue for="4" value="187.0" />
+          <attvalue for="5" value="{(5, 6): {'tstart': 2.0, 'tend': 189.0}, (6, 2): {'tstart': 189.0, 'tend': 376.0}}" />
+          <attvalue for="6" value="187.0" />
+          <attvalue for="7" value="2.0" />
+          <attvalue for="8" value="376.0" />
+        </attvalues>
+      </edge>
+      <edge id="8" source="BR1" target="BR2">
+        <attvalues>
+          <attvalue for="4" value="2083.0" />
+          <attvalue for="5" value="{(4, 8): {'tstart': 204.0, 'tend': 2287.0}}" />
+          <attvalue for="6" value="2083.0" />
+          <attvalue for="7" value="204.0" />
+          <attvalue for="8" value="2287.0" />
+        </attvalues>
+      </edge>
+      <edge id="9" source="BR2" target="BUF">
+        <attvalues>
+          <attvalue for="4" value="10.0" />
+          <attvalue for="5" value="{(8, 12): {'tstart': 6455.0, 'tend': 6465.0}}" />
+          <attvalue for="6" value="10.0" />
+          <attvalue for="7" value="6455.0" />
+          <attvalue for="8" value="6465.0" />
+        </attvalues>
+      </edge>
+      <edge id="10" source="ADD" target="MEM2">
+        <attvalues>
+          <attvalue for="4" value="380.0" />
+          <attvalue for="5" value="{(6, 7): {'tstart': 7602.0, 'tend': 7982.0}}" />
+          <attvalue for="6" value="380.0" />
+          <attvalue for="7" value="7602.0" />
+          <attvalue for="8" value="7982.0" />
+        </attvalues>
+      </edge>
+      <edge id="11" source="MEM1" target="MC">
+        <attvalues>
+          <attvalue for="4" value="500.0" />
+          <attvalue for="5" value="{(3, 2): {'tstart': 2.0, 'tend': 502.0}}" />
+          <attvalue for="6" value="500.0" />
+          <attvalue for="7" value="2.0" />
+          <attvalue for="8" value="502.0" />
+        </attvalues>
+      </edge>
+      <edge id="12" source="MEM1" target="MEM2">
+        <attvalues>
+          <attvalue for="4" value="3672.0" />
+          <attvalue for="5" value="{(3, 7): {'tstart': 2.0, 'tend': 3674.0}}" />
+          <attvalue for="6" value="3672.0" />
+          <attvalue for="7" value="2.0" />
+          <attvalue for="8" value="3674.0" />
+        </attvalues>
+      </edge>
+      <edge id="13" source="HUF1" target="HUF2">
+        <attvalues>
+          <attvalue for="4" value="500.0" />
+          <attvalue for="5" value="{(1, 0): {'tstart': 454.0, 'tend': 954.0}}" />
+          <attvalue for="6" value="500.0" />
+          <attvalue for="7" value="454.0" />
+          <attvalue for="8" value="954.0" />
+        </attvalues>
+      </edge>
+      <edge id="14" source="SUM" target="BUF">
+        <attvalues>
+          <attvalue for="4" value="500.0" />
+          <attvalue for="5" value="{(13, 12): {'tstart': 4064.0, 'tend': 4564.0}}" />
+          <attvalue for="6" value="500.0" />
+          <attvalue for="7" value="4064.0" />
+          <attvalue for="8" value="4564.0" />
+        </attvalues>
+      </edge>
+    </edges>
+  </graph>
+</gexf>

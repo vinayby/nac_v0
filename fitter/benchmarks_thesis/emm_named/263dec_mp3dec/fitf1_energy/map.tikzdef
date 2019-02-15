@@ -1,0 +1,1 @@
+\def\rtmap{{"MEM2", "MEM1", "-", "IMD", "ADD", "MC", "-", "SUM", "IDCT", "BR1", "BR2", "BUF", "IQ", "VLD", "HUF2", "HUF1"}};

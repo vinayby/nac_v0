@@ -1,0 +1,15 @@
+#noc = /home/vinay/git.si/nocx/CONNECT_noc_bag/build.t_mesh__n_9__r_3_c_3__v_2__d_4__w_64_peek_vlinks/
+# noc = /home/vinay/git.area/fnocs/release_v1_mar18/fnoc_out_switch_2r5p
+noc = /home/vinay//git.si/nocx/CONNECT_noc_bag/build.t_mesh__n_16__r_4_c_4__v_2__d_4__w_64_peek_vlinks/ 
+#noc = /home/vinay//git.si/nocx/CONNECT_noc_bag/build.t_mesh__n_16__r_4_c_4__v_2__d_4__w_64_peek_vlinks/
+outdir = 1_out
+vhlswrappers = 1_sourcehls
+simulator = vcs
+no-task-info
+#buffered-sr-ports
+scemi
+runtime-src-list= [main.cpp]
+mpi-src-list= [natask_host.cpp]
+simv = state-entry-exit
+
+

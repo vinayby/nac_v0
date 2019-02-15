@@ -1,0 +1,59 @@
+// test.na
+// 2017-10-17
+// MACROS 
+
+// TYPE DECLARATIONS 
+struct X {
+  25 : v;
+};
+struct WS { 
+    ufixed<32,16>  weight;                                                                                         
+    ufixed<32,16>  x, y; 
+}; 
+struct Pixel  { 8: rgb[3];           };  
+struct XF {
+  float v;
+  25: a;
+  12: b[4];
+  float c[3];
+  double e[2];
+  uint32_t d;
+  ufixed<32,16> f;
+};
+// FUNCTION DECLARATIONS
+__vivadohls__ pe plus1(__reg__ struct X v, __reg__ struct X &vo);
+__vivadohls__ pe plus1f(__reg__ struct XF v, __reg__ struct XF &vo);
+// TASK DEFINITIONS
+
+scemi host() { }
+
+echo () {
+  __reg__ struct X x,xo;
+  recv x from host;
+  display x;
+  plus1(x, xo);
+  display xo;
+  send xo to host;
+}
+echof() {
+  __reg__ struct XF x, xo;
+  recv x from host;
+  display x;
+  plus1f(x, xo);
+  display xo;
+  send xo to host;
+
+  __reg__ struct WS ws;
+  __reg__ struct Pixel p;
+  recv ws from host;
+  send ws to host;
+  recv p from host;
+  send p to host;
+}
+
+sink0() {
+  struct WS ws;
+  recv ws from host;
+  display ws;
+
+}

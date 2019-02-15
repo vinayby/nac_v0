@@ -1,0 +1,19 @@
+%Nodes
+\node[squarenode] (jug2) [ ] {jug2};
+\node[squarenode] (jug1) [ ] {jug1};
+\node[squarenode] (inmem2) [ ] {inmem2};
+\node[squarenode] (HS) [ ] {HS};
+\node[squarenode] (inmem1) [ ] {inmem1};
+\node[squarenode] (mem) [ ] {mem};
+\node[squarenode] (VS) [ ] {VS};
+\node[squarenode] (odisp) [ ] {odisp};
+%Lines
+%(post-edit positioning as necessary)
+\draw[triangle 45 - triangle 45] (jug2) -- (mem)  node [edgelabel] {64} ;
+\draw[triangle 45 - triangle 45] (jug1) -- (mem)  node [edgelabel] {64} ;
+\draw[triangle 45 - triangle 45] (inmem2) -- (jug2)  node [edgelabel] {64} ;
+\draw[triangle 45 - triangle 45] (HS) -- (VS)  node [edgelabel] {64} ;
+\draw[triangle 45 - triangle 45] (inmem1) -- (inmem2)  node [edgelabel] {64} ;
+\draw[triangle 45 - triangle 45] (inmem1) -- (HS)  node [edgelabel] {128} ;
+\draw[triangle 45 - triangle 45] (mem) -- (odisp)  node [edgelabel] {64} ;
+\draw[triangle 45 - triangle 45] (VS) -- (jug1)  node [edgelabel] {64} ;

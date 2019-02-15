@@ -1,0 +1,16 @@
+12
+13
+vu au medcpu rast sdram sram1 sram2 idct adsp upsamp bab risc 
+vu sdram 190
+au sdram 1
+medcpu sdram 60
+rast sdram 600
+medcpu sram1 40
+rast sram1 40
+sdram adsp 1
+sdram upsamp 910
+sdram bab 32
+sram2 upsamp 670
+sram2 bab 173
+sram2 risc 500
+sram2 idct 250

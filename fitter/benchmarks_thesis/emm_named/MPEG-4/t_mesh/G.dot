@@ -1,0 +1,28 @@
+strict digraph  {
+	sdram -> adsp	 [label=1.0,
+		volume=1.0];
+	sdram -> upsamp	 [label=910.0,
+		volume=910.0];
+	sdram -> bab	 [label=32.0,
+		volume=32.0];
+	medcpu -> sdram	 [label=60.0,
+		volume=60.0];
+	medcpu -> sram1	 [label=40.0,
+		volume=40.0];
+	sram2 -> idct	 [label=250.0,
+		volume=250.0];
+	sram2 -> upsamp	 [label=670.0,
+		volume=670.0];
+	sram2 -> risc	 [label=500.0,
+		volume=500.0];
+	sram2 -> bab	 [label=173.0,
+		volume=173.0];
+	rast -> sdram	 [label=600.0,
+		volume=600.0];
+	rast -> sram1	 [label=40.0,
+		volume=40.0];
+	au -> sdram	 [label=1.0,
+		volume=1.0];
+	vu -> sdram	 [label=190.0,
+		volume=190.0];
+}
